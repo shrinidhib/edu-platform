@@ -10,7 +10,7 @@ export default function Navbar() {
             </Link>
             <nav>
                 <div>
-                    <Link to="/">Notes</Link>
+                    <Link to="/mynotes">Notes</Link>
                 </div>
             </nav>
         </div>
