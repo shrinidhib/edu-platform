@@ -1,0 +1,41 @@
+.note-form{
+    width: 480px;
+    background-color: #eecc8c;
+    padding: 30px;
+   
+    
+}
+
+.note-form >label{
+    display: block;
+    margin: 5px 0;
+}
+
+.note-form >input{
+    display:  block;
+    height: 32px;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1rem;
+
+}
+
+.content{
+    display: block;
+    height: 300px;
+    width: 100%;
+    font-size: 0.8rem;
+}
+
+textarea{
+    resize: none;
+
+}
+button{
+    display: block;
+    margin-top: 10px;
+    background: var(--primary);
+    border: none;
+    padding: 10px 15px;
+    
+}
