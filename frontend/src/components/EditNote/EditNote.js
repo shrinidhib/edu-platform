@@ -1,19 +1,22 @@
 import { useState } from 'react'
+import { useNoteContext } from '../../hooks/useNoteContext'
 import './EditNote.css'
 
-const EditNote=()=>{
-    const [title,setTitle]=useState('')
-    const [content,setContent]=useState('')
+const EditNote=({note, editHandler, modalHandler})=>{
+    const [title,setTitle]=useState(note.title)
+    const [content,setContent]=useState(note.content)
     const [error,setError]=useState('')
     const [empty,setEmpty]=useState([])
+    const {dispatch}=useNoteContext()
+    console.log(note)
 
-    const submitHandler=async(e)=>{
+    const submitEditHandler=async(e)=>{
         e.preventDefault()
-
-        const note={title,content}
-        const response=await fetch("http://localhost:4005/notes/",{
-            method: 'POST',
-            body: JSON.stringify(note),
+        // const note={title,content}
+        const edited_note={title,content}
+        const response=await fetch(`http://localhost:4005/notes/${note._id}`,{
+            method: 'PATCH',
+            body: JSON.stringify(edited_note),
             headers:{
                 'Content-type': 'application/json'
             }
@@ -30,11 +33,20 @@ const EditNote=()=>{
             setContent('')
             setError(null)
             setEmpty([])
+            dispatch({
+                type: 'UPDATE_NOTE',
+                payload: json
+            })
+            modalHandler()
+            editHandler()
+            
+
+
 
         }
     }
     return (
-            <form className='edit-note-form' onSubmit={submitHandler}>
+            <form className='edit-note-form' onSubmit={submitEditHandler}>
                 <label>Note Title: </label>
                 <input
                     type="text"

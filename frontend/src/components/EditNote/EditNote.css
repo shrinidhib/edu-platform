@@ -1,9 +1,15 @@
 .edit-note-form{
-        margin: 10% auto;
         padding: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
         background: #eecc8c;
         width: 450px;
         height: 500px;
         z-index: 12;
-        position: relative;
+        position: fixed;
+        border: 1px solid black;
+        display: flex;
+        flex-direction:column;
 }
+

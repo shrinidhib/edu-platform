@@ -18,10 +18,12 @@ export const noteReducer=(state,action)=>{
                 })
             }
         case 'UPDATE_NOTE':
+            let prevNotes=state.notes.filter((n)=>{
+                return n._id!=action.payload._id
+            })
+
             return {
-                notes: state.notes.filter((n)=>{
-                    return n._id!=action.payload._id
-                })
+                notes: [action.payload,...prevNotes]
             }
         default:
             return state

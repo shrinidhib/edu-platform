@@ -44,3 +44,7 @@ header a{
   column-gap: 1.5em;
  
 }
+
+.error{
+  color: var(--error);
+}

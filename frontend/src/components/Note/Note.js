@@ -23,9 +23,10 @@ const Note=({note})=>{
             <p>{note.content.slice(0,30)}</p>
             <button className='read-btn' onClick={modalHandler}>Read More</button>
 
-            {showEdit && <EditNote/>}
+            
             {showNote && 
             <div  onClick={modalHandler} className='modal'>
+                
                 <div onClick={(e)=>{
                     e.stopPropagation()}}
                     className='modal-note' >
@@ -37,6 +38,8 @@ const Note=({note})=>{
                     <p className='modal-content'>{note.content}</p>
                 </div>
             </div>}
+
+            {showEdit && <EditNote note={note} editHandler={editHandler} modalHandler={modalHandler}/>}
             
         </div>
     )
