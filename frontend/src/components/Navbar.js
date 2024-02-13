@@ -9,7 +9,7 @@ export default function Navbar() {
                 <h1>Logo</h1>
             </Link>
             <nav>
-                <div>
+                <div className='nav-item'>
                     <Link to="/mynotes">Notes</Link>
                 </div>
             </nav>

@@ -49,6 +49,17 @@ const updateNote=async(req,res)=>{
     if (!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).json({msg:"invalid id"})
     }
+    const {title,content}=req.body
+    let emptyFields=[]
+    if (!title){
+        emptyFields.push('title')
+    }
+    if(!content){
+        emptyFields.push('content')
+    }
+    if (emptyFields.length>0){
+        return res.status(400).json({error: 'Please fill all fields', emptyFields})
+    }
     const note=await Note.findOneAndUpdate({_id: id},{...req.body},{
         new: true
     })

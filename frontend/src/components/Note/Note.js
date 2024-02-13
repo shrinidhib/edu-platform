@@ -17,11 +17,12 @@ const Note=({note})=>{
 
     const editHandler=()=>{
         console.log('edit')
+        setShowNote(!showNote)
         setShowEdit(!showEdit)
     }
     
     const deleteHandler=async()=>{
-        const isConfirmed = window.confirm("Are you sure you want to delete?")
+        const isConfirmed = window.confirm("Are you sure you want to delete this note?")
 
         if (isConfirmed){
             const response=await fetch(`http://localhost:4005/notes/${note._id}`,{
@@ -49,10 +50,11 @@ const Note=({note})=>{
     return (
         <div className='note'>
             <h1>{note.title}</h1>
-            <p>{note.content.slice(0,30)}</p>
+            <p>{note.content.slice(0,30)}...</p>
             <button className='read-btn' onClick={modalHandler}>Read More</button>
             <MdDelete onClick={deleteHandler} className='delete' size={25}/>
 
+            {showEdit && <EditNote note={note} editHandler={editHandler} modalHandler={modalHandler}/>}
             
             {showNote && 
             <div  onClick={modalHandler} className='modal'>
@@ -69,7 +71,6 @@ const Note=({note})=>{
                 </div>
             </div>}
 
-            {showEdit && <EditNote note={note} editHandler={editHandler} modalHandler={modalHandler}/>}
             
         </div>
     )

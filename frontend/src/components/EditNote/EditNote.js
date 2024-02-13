@@ -42,26 +42,28 @@ const EditNote=({note, editHandler, modalHandler})=>{
         }
     }
     return (
+        <div className='edit-modal'>
             <form className='edit-note-form' onSubmit={submitEditHandler}>
                 <label>Note Title: </label>
                 <input
                     type="text"
                     onChange={(e)=>setTitle(e.target.value)}
                     value={title}
-                    className={empty.includes('title')? "error": ''}
+                    className={empty.includes('title')? "error edit-title": 'edit-title'}
                     />
                 <label>Content: </label>
                 <textarea
                     type="text"
                     onChange={(e)=>setContent(e.target.value)}
                     value={content}
-                    className={empty.includes('content')? "error content": 'content'}
+                    className={empty.includes('content')? "error edit-content": 'edit-content'}
                     maxLength="1500"
                     />
 
                 <button type="submit">Save and Close note</button>
                 {error && <div className='error'>{error}</div>}
             </form>
+        </div>
         
     )
 
