@@ -8,16 +8,18 @@ body {
   margin: 0;
   font-family:'Montserrat', sans-serif;
   box-sizing: border-box;
-  background: #f1f1f1;
+  background: #d3a29d;
   
 }
 
 header{
-  background: #fff;
+  background: #a36361;
+  
 }
 
 header .container{
   max-width: 1400px;
+  
   margin: 0 auto;
   padding: 10px 20px;
   display: flex;
@@ -26,7 +28,7 @@ header .container{
 }
 
 header a{
-  color: #333;
+  color: white;
   text-decoration: none;
 }
 
@@ -36,3 +38,9 @@ header a{
   margin: 0 auto;
 }
 
+.mynotes{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 1.5em;
+ 
+}

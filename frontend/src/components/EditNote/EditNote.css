@@ -1,0 +1,9 @@
+.edit-note-form{
+        margin: 10% auto;
+        padding: 20px;
+        background: #eecc8c;
+        width: 450px;
+        height: 500px;
+        z-index: 12;
+        position: relative;
+}

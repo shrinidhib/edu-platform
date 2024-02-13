@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import Note from "../components/Note/Note"
 import { useNoteContext } from "../hooks/useNoteContext"
 
 const MyNotes=()=>{
@@ -25,7 +26,7 @@ const MyNotes=()=>{
          <div className="mynotes">
             {notes && notes.map((note)=>{
                 return (
-                    <div>{note.title}</div>
+                    <Note note={note}/>
                 )
             })}
         </div>
