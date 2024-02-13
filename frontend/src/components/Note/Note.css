@@ -20,6 +20,13 @@
     margin: 20px;
 }
 
+.delete{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 25px;
+}
+
 .modal{
     position: fixed;
     top: 0;

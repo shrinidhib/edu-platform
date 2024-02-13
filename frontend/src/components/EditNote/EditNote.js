@@ -39,10 +39,6 @@ const EditNote=({note, editHandler, modalHandler})=>{
             })
             modalHandler()
             editHandler()
-            
-
-
-
         }
     }
     return (

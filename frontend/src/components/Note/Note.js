@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { IoMdCloseCircle } from "react-icons/io";
 import { MdEdit } from "react-icons/md";
+import { MdDelete } from "react-icons/md";
+import { useNoteContext } from '../../hooks/useNoteContext';
 import EditNote from '../EditNote/EditNote';
 import './Note.css'
 
@@ -8,6 +10,7 @@ const Note=({note})=>{
 
     const [showNote,setShowNote]=useState(false)
     const [showEdit,setShowEdit]=useState(false)
+    const {dispatch} = useNoteContext()
     const modalHandler=()=>{
         setShowNote(!showNote)
     }
@@ -16,12 +19,39 @@ const Note=({note})=>{
         console.log('edit')
         setShowEdit(!showEdit)
     }
+    
+    const deleteHandler=async()=>{
+        const isConfirmed = window.confirm("Are you sure you want to delete?")
+
+        if (isConfirmed){
+            const response=await fetch(`http://localhost:4005/notes/${note._id}`,{
+            method: 'DELETE',
+            body: JSON.stringify(note),
+            headers:{
+                'Content-type': 'application/json'
+            }
+            })
+            const json =await response.json()
+            dispatch({
+                type: 'DELETE_NOTE',
+                payload: json
+            })
+
+
+
+        }
+
+        
+
+        
+    }
 
     return (
         <div className='note'>
             <h1>{note.title}</h1>
             <p>{note.content.slice(0,30)}</p>
             <button className='read-btn' onClick={modalHandler}>Read More</button>
+            <MdDelete onClick={deleteHandler} className='delete' size={25}/>
 
             
             {showNote && 
