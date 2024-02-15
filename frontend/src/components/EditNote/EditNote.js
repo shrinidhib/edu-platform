@@ -8,7 +8,6 @@ const EditNote=({note, editHandler, modalHandler})=>{
     const [error,setError]=useState('')
     const [empty,setEmpty]=useState([])
     const {dispatch}=useNoteContext()
-    console.log(note)
 
     const submitEditHandler=async(e)=>{
         e.preventDefault()
@@ -23,12 +22,10 @@ const EditNote=({note, editHandler, modalHandler})=>{
         })
         const json=await response.json()
         if (!response.ok){
-            console.log(json)
             setError(json.error)
             setEmpty(json.emptyFields)
         }
         else{
-            console.log(note)
             setTitle('')
             setContent('')
             setError(null)

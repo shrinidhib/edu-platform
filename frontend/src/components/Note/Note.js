@@ -16,7 +16,6 @@ const Note=({note})=>{
     }
 
     const editHandler=()=>{
-        console.log('edit')
         setShowNote(!showNote)
         setShowEdit(!showEdit)
     }

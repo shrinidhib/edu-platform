@@ -22,12 +22,10 @@ const NoteForm=()=>{
         })
         const json=await response.json()
         if (!response.ok){
-            console.log(json)
             setError(json.error)
             setEmpty(json.emptyFields)
         }
         else{
-            console.log(note)
             setTitle('')
             setContent('')
             setError(null)

@@ -8,12 +8,14 @@ body {
   margin: 0;
   font-family:'Montserrat', sans-serif;
   box-sizing: border-box;
-  background: #d3a29d;
+  /* background: #d3a29d; */
+  background: #fbe4d8;
   
 }
 
 header{
-  background: #a36361;
+  /* background: #a36361; */
+  background: #190019;
   
 }
 
