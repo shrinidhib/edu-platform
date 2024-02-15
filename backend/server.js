@@ -18,7 +18,7 @@ app.use((req,res,next)=>{
 })
 
 app.use('/notes/', noteRoutes)
-app.use*'/videos/', 
+app.use('/videos/', videoRoutes) 
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
