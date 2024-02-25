@@ -14,9 +14,8 @@ function App() {
       <Navbar/>
       <div className='pages'>
         <Routes>
-          <Route path='/' element={<Home/>}/>
+          <Route path='/' element={<Videos/>}/>
           <Route path='/mynotes' element={<MyNotes/>}/>
-          <Route path='/video' element={<Videos/>}/>
           <Route path='/watch/:videoId' element={<VideoView/>}/>
         </Routes>
       </div>

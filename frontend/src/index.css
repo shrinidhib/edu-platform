@@ -59,3 +59,13 @@ header a{
   gap: 20px;
   overflow-x: scroll;
 }
+
+.video{
+  height: 600px;
+  width: 1000px;
+}
+
+.video-view-page{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}

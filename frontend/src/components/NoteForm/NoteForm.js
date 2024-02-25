@@ -3,7 +3,7 @@ import Draggable from 'react-draggable'
 import './Noteform.css'
 
 
-const NoteForm=()=>{
+const NoteForm=({toggleModal})=>{
     const [title,setTitle]=useState('')
     const [content,setContent]=useState('')
     const [error,setError]=useState('')
@@ -30,6 +30,7 @@ const NoteForm=()=>{
             setContent('')
             setError(null)
             setEmpty([])
+            toggleModal()
 
         }
     }
