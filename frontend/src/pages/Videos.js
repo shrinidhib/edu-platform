@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { AddVideo } from '../components/AddVideo/AddVideo'
+import Thumbnail from '../components/Thumbnail/Thumbnail'
 
-export const Video = () => {
+export const Videos = () => {
     const [videosList,setVideosList]=useState([])
     
     useEffect(()=>{
@@ -34,19 +35,15 @@ export const Video = () => {
         }
     }
 
-    function getThumbnail(videoId) {
-        return `https://img.youtube.com/vi/${videoId}/default.jpg`;
-    }
   return (
-    <div>
+    <div >
+        <div className='video_list'>
         {videosList && videosList.map((v)=>{
                  const videoId=fetchVideoId(v)
                  return(
-                    <img key={v._id} src={`https://img.youtube.com/vi/${videoId}/default.jpg`}/>
-                 )
-            }
-           
-        )}
+                    <Thumbnail key={v._id} videoId={videoId}/>
+                 )})}
+        </div>
         <AddVideo/>
     </div>
     

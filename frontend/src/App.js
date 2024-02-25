@@ -2,7 +2,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import MyNotes from './pages/MyNotes';
-import { Video } from './pages/Video';
+import { Videos } from './pages/Videos';
+import { VideoView } from './pages/VideoView';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/mynotes' element={<MyNotes/>}/>
-          <Route path='/video' element={<Video/>}/>
+          <Route path='/video' element={<Videos/>}/>
+          <Route path='/watch/:videoId' element={<VideoView/>}/>
         </Routes>
       </div>
       </BrowserRouter>

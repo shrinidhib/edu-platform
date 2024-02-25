@@ -53,3 +53,9 @@ header a{
 .error{
   color: var(--error);
 }
+
+.video_list{
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+}
