@@ -52,8 +52,10 @@ const NoteForm=({toggleModal})=>{
                     className={empty.includes('content')? "error content": 'content'}
                     maxLength="1500"
                     />
-
+                <div className='options'>
                 <button type="submit">Save and Close note</button>
+                <button className='cancel-btn' onClick={toggleModal}>Cancel</button>
+                </div>
                 {error && <div className='error'>{error}</div>}
             </form>
         </Draggable>

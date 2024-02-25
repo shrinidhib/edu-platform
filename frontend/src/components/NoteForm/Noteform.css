@@ -1,7 +1,10 @@
 .note-form{
-    width: 480px;
+    width: 400px;
     background-color: #eecc8c;
     padding: 30px;
+    position: absolute;
+    top: 12%;
+    right: 0;
    
     
 }
@@ -12,6 +15,8 @@
 }
 
 .note-form >input{
+    background-color: #eecc8c ;
+    border: 0.5px solid black;
     display:  block;
     height: 32px;
     width: 100%;
@@ -29,6 +34,8 @@
 
 textarea{
     resize: none;
+    background-color: #eecc8c ;
+    border: 0.5px solid black;
 
 }
 button{
@@ -38,4 +45,15 @@ button{
     border: none;
     padding: 10px 15px;
     border-radius: 10px;
+}
+
+.options{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+}
+
+.cancel-btn{
+    background-color: var(--error);
+    
 }

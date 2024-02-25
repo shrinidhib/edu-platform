@@ -62,10 +62,18 @@ header a{
 
 .video{
   height: 600px;
-  width: 1000px;
+  width: 1200px;
 }
 
 .video-view-page{
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 5fr 1fr;
+  align-items: center;
+}
+
+.createnote-btn{
+  background-color: #eecc8c;
+  margin-left: 20%;
+  padding: 40px;
+  font-size: 1.2rem;
 }

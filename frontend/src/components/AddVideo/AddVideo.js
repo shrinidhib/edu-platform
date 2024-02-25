@@ -6,8 +6,8 @@ export const AddVideo = () => {
     const [inputUrl,setInputUrl]=useState('')
     const [error,setError]=useState(null)
     const addVideoHandler=async()=>{
-        const pattern = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})$/;
-        const isValid=pattern.test(inputUrl)
+        const pattern = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:\S+)?$/;
+        const isValid = pattern.test(inputUrl); 
 
         if (!isValid){
             window.alert('Please enter a valid video url')
