@@ -64,7 +64,7 @@ const updateNote=async(req,res)=>{
         new: true
     })
     if (!note){
-        return res.status(400).json({msg: "no such workout"})
+        return res.status(400).json({msg: "no such note"})
     }
     res.status(200).json(note)
 }
