@@ -1,11 +1,11 @@
-import mongoose from 'mongoose'
-import { Question } from '../models/questionModel'
+const mongoose=require('mongoose')
+const { Question }= require('../models/questionModel')
 
 const createQuestion=async(req,res)=>{
     const {question, options, answer}=req.body
     try{
-        const question= await Question.create({question,options,answer})
-        res.status(200).json(question)
+        const q= await Question.create({question,options,answer})
+        res.status(200).json(q)
 
     }catch(err){
         console.log(err)
@@ -14,7 +14,7 @@ const createQuestion=async(req,res)=>{
 }
 
 const updateQuestion=async(req,res)=>{
-    const {id}=req.params()
+    const {id}=req.params
     if (!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).json({msg:"invalid id"})
     }
