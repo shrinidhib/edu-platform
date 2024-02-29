@@ -31,9 +31,21 @@ const fetchTest=async(req,res)=>{
     }
 }
 
+const createTest=async(req,res)=>{
+    const {questions, title, teacherId}=req.body
+    try{
+        const test= await Test.create({questions,title,teacherId})
+        return res.status(200).json(test)
+    }catch(err){
+        return res.status(400).json({error: err.message})
+    }
+
+}
+
 module.exports={
     getAlltests,
     getTeacherTests,
-    fetchTest
+    fetchTest,
+    createTest
 }
 
