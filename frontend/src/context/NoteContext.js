@@ -18,12 +18,23 @@ export const noteReducer=(state,action)=>{
                 })
             }
         case 'UPDATE_NOTE':
-            let prevNotes=state.notes.filter((n)=>{
-                return n._id!=action.payload._id
-            })
+            let newNotes=[]
+            state.notes.forEach(n => {
+                if (n._id===action.payload._id){
+                    console.log(action.payload)
 
+                    return newNotes.push(action.payload)
+                }
+                else{
+                    return newNotes.push(n)
+                }
+                
+            });
+            
+
+            console.log(newNotes)
             return {
-                notes: [action.payload,...prevNotes]
+                notes: newNotes
             }
         default:
             return state
