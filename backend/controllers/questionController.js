@@ -5,11 +5,11 @@ const createQuestion=async(req,res)=>{
     const {question, options, answer}=req.body
     try{
         const q= await Question.create({question,options,answer})
-        res.status(200).json(q)
+        return res.status(200).json(q)
 
     }catch(err){
         console.log(err)
-        res.status(400).json({error: err.message})
+        return res.status(400).json({error: err.message})
     }
 }
 
