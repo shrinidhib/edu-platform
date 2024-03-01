@@ -13,6 +13,7 @@ const createQuestion=async(req,res)=>{
     }
 }
 
+
 const updateQuestion=async(req,res)=>{
     const {id}=req.params
     if (!mongoose.Types.ObjectId.isValid(id)){
