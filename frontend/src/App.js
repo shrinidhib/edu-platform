@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import MyNotes from './pages/MyNotes';
 import { Videos } from './pages/Videos';
 import { VideoView } from './pages/VideoView';
+import { CreateTest } from './pages/CreateTest';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<Videos/>}/>
           <Route path='/mynotes' element={<MyNotes/>}/>
           <Route path='/watch/:videoId' element={<VideoView/>}/>
+          <Route path='/createtest' element={<CreateTest/>}/>
         </Routes>
       </div>
       </BrowserRouter>

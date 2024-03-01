@@ -36,6 +36,7 @@ header a{
 .nav-item{
   margin:10px;
   font-size: 1.3rem;
+  display: flex;
 }
 .pages{
   max-width: 1400px;
@@ -76,4 +77,8 @@ header a{
   margin-left: 20%;
   padding: 40px;
   font-size: 1.2rem;
+}
+
+.nav-link{
+  margin: 10px
 }

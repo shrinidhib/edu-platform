@@ -5,6 +5,7 @@ const mongoose=require('mongoose')
 const noteRoutes=require('./routes/notes')
 const videoRoutes=require('./routes/videos')
 const questionRoutes=require('./routes/question')
+const testRoutes=require('./routes/test')
 
 
 const app=express()
@@ -21,6 +22,7 @@ app.use((req,res,next)=>{
 app.use('/notes/', noteRoutes)
 app.use('/videos/', videoRoutes) 
 app.use('/questions/', questionRoutes)
+app.use('/test/', testRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{

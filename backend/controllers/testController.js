@@ -11,7 +11,8 @@ const getAlltests=async(req,res)=>{
 }
 
 const getTeacherTests=async(req,res)=>{
-    const {teacherId}=req.body
+    const {teacherId}=req.params
+  
     try{
         const tests = await Test.find({teacherId}).sort({createdAt:-1})
         return res.status(200).json(tests)

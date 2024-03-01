@@ -9,8 +9,9 @@ export default function Navbar() {
                 <h1>Logo</h1>
             </Link>
             <nav>
-                <div className='nav-item'>
-                    <Link to="/mynotes">Notes</Link>
+                <div className='nav-items'>
+                    <Link className='nav-link' to="/mynotes">Notes</Link>
+                    <Link  className='nav-link' to="/createtest">Create Test</Link>
                 </div>
             </nav>
         </div>
