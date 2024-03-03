@@ -88,6 +88,8 @@ header a{
   padding: 20px;
   border-radius: 10px;
   width: 90%;
+  
+  
 }
 .question-section{
   display: flex;
@@ -98,6 +100,11 @@ header a{
   font-weight: 800;
   color: white;
   margin: 10px 0;
+}
+
+.title-container{
+  display: flex;
+  justify-content: center;
 }
 
 .question-header{
@@ -143,15 +150,11 @@ header a{
   border-radius: 5px;
   border: none;
   margin-bottom: 30px;
+  width: 50%;
+  overflow-x: auto;
   
 }
 
-.container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 .button-section{
   display: flex;
@@ -175,3 +178,4 @@ header a{
   display: flex;
   gap: 20px;
 }
+
