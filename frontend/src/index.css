@@ -125,8 +125,15 @@ header a{
 }
 
 .option{
-  padding: 10px;
-  margin: 10px;
+  display: flex;
+  gap: 15px;
+}
+
+.option-input{
+  border-radius: 10px;
+  border: none;
+  margin: 5px;
+  width: 80%;
 }
 
 .title-input{
@@ -155,4 +162,16 @@ header a{
 
 .reset-button{
   background-color: #fbe4d8;
+}
+
+.answer-selector{
+  padding: 10px;
+  margin: 5px;
+  width: 200px;
+  overflow-x: hidden;
+}
+
+.answer-section{
+  display: flex;
+  gap: 20px;
 }

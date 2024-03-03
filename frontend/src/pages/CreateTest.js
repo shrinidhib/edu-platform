@@ -12,6 +12,7 @@ export const CreateTest = () => {
   const [option2,setOption2]=useState('')
   const [option3,setOption3]=useState('')
   const [option4,setOption4]=useState('')
+  const [answer,setAnswer]=useState('')
 
   const reset=()=>{
     setQuestion('')
@@ -21,30 +22,64 @@ export const CreateTest = () => {
     setOption4('')
   }
 
+  const questionSubmitHandler=(e)=>{
+      e.preventDefault()
+      const q={question:question, options: [option1,option2,option3,option4], answer: answer}
+      console.log(q)
+
+  }
+
+  const testSubmitHandler=()=>{
+
+  }
+
   return (
     <div className="container">
-    <input onChange={(e)=>setTitle(e.target.value)} className="title-input" placeholder="Enter Title of Test"></input>
-    <form className="question-form">
-        <h2 className="question-header">Question {number}</h2>
+      <input required onChange={(e)=>setTitle(e.target.value)} className="title-input" placeholder="Enter Title of Test"></input>
+      <form onSubmit={questionSubmitHandler} className="question-form">
+          <h2 className="question-header">Question {number}</h2>
 
-        <div className="question-section">
-            <label className="question-label">Question: </label>
-            <textarea value={question} onChange={(e)=>setQuestion(e.target.value)}className='question' placeholder="Enter question..."></textarea>
-        </div>
+          <div className="question-section">
+              <label className="question-label">Question: </label>
+              <textarea required value={question} onChange={(e)=>setQuestion(e.target.value)}className='question' placeholder="Enter question..."></textarea>
+          </div>
 
-        <div className="options-section">
-            <input value={option1} onChange={(e)=>setOption1(e.target.value)} className='option' placeholder="Option 1..."></input>
-            <input value={option2} onChange={(e)=>setOption2(e.target.value)} className='option' placeholder="Option 2..."></input>
-            <input value={option3} onChange={(e)=>setOption3(e.target.value)} className='option' placeholder="Option 3..."></input>
-            <input value={option4} onChange={(e)=>setOption4(e.target.value)} className='option' placeholder="Option 4..."></input>
-        </div>
-        <div className="button-section">
-          <button className='reset-button' onClick={reset}>Reset</button>
-          <button type="submit">Set Question</button>
+          <div className="options-section">
+            <div className="option">
+              <p style={{color: "white"}}>A. </p>
+              <input required value={option1} onChange={(e)=>setOption1(e.target.value)} className='option-input' placeholder="Option 1..."></input>
+            </div>
+            <div className="option">
+              <p style={{color: "white"}}>B. </p>
+              <input required value={option2} onChange={(e)=>setOption2(e.target.value)} className='option-input' placeholder="Option 2..."></input>
+            </div>
+            <div className="option">
+              <p style={{color: "white"}}>C. </p>
+              <input required value={option3} onChange={(e)=>setOption3(e.target.value)} className='option-input' placeholder="Option 3..."></input>
+            </div>
+            <div className="option">
+              <p style={{color: "white"}}>D. </p>
+              <input required value={option4} onChange={(e)=>setOption4(e.target.value)} className='option-input' placeholder="Option 4..."></input>
+            </div>
+          </div>
+          <div className="answer-section">
+            <h3 style={{color: "white"}}>Select Correct answer: </h3>
+            <select required className='answer-selector' value={answer} onChange={(e)=>setAnswer(e.target.value)}>
+              <option value="" disabled hidden>Select an option</option>
+              <option value={option1}>{option1}</option>
+              <option value={option2}>{option2}</option>
+              <option value={option3}>{option3}</option>
+              <option value={option4}>{option4}</option>
 
-        </div>
+            </select>
+          </div>
+          <div className="button-section">
+            <button className='reset-button' onClick={reset}>Reset</button>
+            <button type="submit">Set Question</button>
 
-    </form>
+          </div>
+
+      </form>
     </div>
   )
 };
