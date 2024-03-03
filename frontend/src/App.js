@@ -5,6 +5,8 @@ import MyNotes from './pages/MyNotes';
 import { Videos } from './pages/Videos';
 import { VideoView } from './pages/VideoView';
 import { CreateTest } from './pages/CreateTest';
+import { PreviewTest } from './pages/PreviewTest';
+import { Tests } from './pages/Tests';
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path='/mynotes' element={<MyNotes/>}/>
           <Route path='/watch/:videoId' element={<VideoView/>}/>
           <Route path='/createtest' element={<CreateTest/>}/>
+          <Route path='/preview' element={<PreviewTest/>}/>
+          <Route path='/tests' element={<Tests/>}/>
         </Routes>
       </div>
       </BrowserRouter>

@@ -69,7 +69,7 @@ export const CreateTest = () => {
       const json=await response.json()
       if (response.ok){
         console.log(json)
-        navigate(`/preview/${json._id}`)
+        navigate("/preview",{state:{test: json}})
       }
 
 
