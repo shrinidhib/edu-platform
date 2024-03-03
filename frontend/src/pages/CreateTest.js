@@ -20,12 +20,33 @@ export const CreateTest = () => {
     setOption2('')
     setOption3('')
     setOption4('')
+    setAnswer('')
   }
 
-  const questionSubmitHandler=(e)=>{
+  const questionSubmitHandler=async(e)=>{
+    console.log(questions)
       e.preventDefault()
       const q={question:question, options: [option1,option2,option3,option4], answer: answer}
-      console.log(q)
+      const response=await fetch("http://localhost:4005/questions/",{
+        method: 'POST',
+        body: JSON.stringify(q),
+        headers:{
+          'Content-type': 'application/json'
+        }
+      })
+      const json=await response.json()
+      if (response.ok){
+        console.log(json)
+        setQuestions((prev)=>[...prev,json])
+        if (number===10){
+          testSubmitHandler()
+        }
+        else{
+          reset()
+          setNumber((prev)=>prev+1)
+        }
+        
+      }
 
   }
 
@@ -35,7 +56,7 @@ export const CreateTest = () => {
 
   return (
     <div className="container">
-      <input required onChange={(e)=>setTitle(e.target.value)} className="title-input" placeholder="Enter Title of Test"></input>
+      <input value={title} required onChange={(e)=>setTitle(e.target.value)} className="title-input" placeholder="Enter Title of Test"></input>
       <form onSubmit={questionSubmitHandler} className="question-form">
           <h2 className="question-header">Question {number}</h2>
 
@@ -75,7 +96,8 @@ export const CreateTest = () => {
           </div>
           <div className="button-section">
             <button className='reset-button' onClick={reset}>Reset</button>
-            <button type="submit">Set Question</button>
+            
+            {number===10?<button type="submit">Set Question and Create Test</button>: <button type="submit">Set Question</button>}
 
           </div>
 
