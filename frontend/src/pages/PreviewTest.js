@@ -10,9 +10,9 @@ export const PreviewTest =({t}) => {
     {test && 
         <div className='preview-container'>
             <h2 className='title'>{test.title}</h2>
-            {test.questions.map((q)=>(
+            {test.questions.map((q,i)=>(
               <div>
-              <Question key={q._id} q={q}/>
+              <Question key={q._id} index={i} q={q}/>
               </div>)
             )}
         </div>}
