@@ -1,12 +1,12 @@
 import React, { useState , useEffect} from "react";
-import {useNavigate} from 'react-router-dom'
+import { PreviewTest } from "./PreviewTest";
 
 export const CreateTest = () => {
   const [questions, setQuestions] = useState([]);
   const [title,setTitle]=useState('')
   const [number, setNumber] = useState(1);
+  const [showPreview, setShowPreview]=useState(false)
 
-  const navigate=useNavigate()
   //State for each question
 
   const [question,setQuestion]=useState('')
@@ -15,6 +15,9 @@ export const CreateTest = () => {
   const [option3,setOption3]=useState('')
   const [option4,setOption4]=useState('')
   const [answer,setAnswer]=useState('')
+
+  //test state
+  const [test, setTest]=useState(null)
 
   const reset=()=>{
     setQuestion('')
@@ -69,14 +72,16 @@ export const CreateTest = () => {
       const json=await response.json()
       if (response.ok){
         console.log(json)
-        navigate("/preview",{state:{test: json}})
+        setTest(json)
+        setShowPreview(true)
       }
 
 
   }
 
   return (
-    <div className="container">
+    <div>
+      {!showPreview && (
       <form onSubmit={questionSubmitHandler} className="question-form">
         <div className="title-container">
           <input value={title} required onChange={(e)=>setTitle(e.target.value)} className="title-input" placeholder="Enter Title of Test"></input>
@@ -125,6 +130,8 @@ export const CreateTest = () => {
           </div>
 
       </form>
+      )}
+      {showPreview && <PreviewTest test/>}
     </div>
   )
 };

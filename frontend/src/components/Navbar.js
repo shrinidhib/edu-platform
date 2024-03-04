@@ -11,6 +11,7 @@ export default function Navbar() {
             <nav>
                 <div className='nav-items'>
                     <Link className='nav-link' to="/mynotes">Notes</Link>
+                    <Link className='nav-link' to='/tests'>My Tests</Link>
                     <Link  className='nav-link' to="/createtest">Create Test</Link>
                 </div>
             </nav>

@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-
+import './css/PreviewTest.css'
+import Question from '../components/Question/Question'
 export const PreviewTest =({t}) => {
-    console.log(t)
     const [test,setTest]=useState(t)
+    console.log(test)
+    console.log(test.questions)
   return (
     <div>
     {test && 
-        <div>
-            <div>{test.title}
-            </div>
-            <p>here</p>
+        <div className='preview-container'>
+            <h2 className='title'>{test.title}</h2>
+            {test.questions.map((q)=>(
+              <div>
+              <Question key={q._id} q={q}/>
+              </div>)
+            )}
         </div>}
     </div>
   )

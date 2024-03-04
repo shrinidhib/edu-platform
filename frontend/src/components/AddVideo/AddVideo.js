@@ -5,7 +5,7 @@ import './AddVideo.css'
 export const AddVideo = () => {
     const [inputUrl,setInputUrl]=useState('')
     const [error,setError]=useState(null)
-    const addVideoHandler=async()=>{
+    const addVideoHandler=async(e)=>{
         const pattern = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:\S+)?$/;
         const isValid = pattern.test(inputUrl); 
 
@@ -35,7 +35,7 @@ export const AddVideo = () => {
 
     }
   return (
-    <form onSubmit={addVideoHandler}>
+    <form onSubmit={(e)=>addVideoHandler(e)}>
         <input 
         type='text' 
         placeholder='Add video url' 
