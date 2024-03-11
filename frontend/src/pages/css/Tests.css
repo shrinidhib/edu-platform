@@ -8,6 +8,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     column-gap: 50px;
+    row-gap: 50px;
+    padding-top: 30px;
 }
 
 .test{
@@ -22,6 +24,8 @@
 .test-title{
     margin-left: 20px;
     font-size: 1.3rem;
+    overflow-x: scroll;
+    
 }
 
 .line{
@@ -29,4 +33,10 @@
     height: 2px;
     background-color: black;
     margin: 10px auto;
+}
+
+.created-at{
+    text-align: end;
+    margin-right: 20px;
+    padding: 10px;
 }

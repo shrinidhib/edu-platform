@@ -2,7 +2,7 @@ import React, { useState , useEffect} from "react";
 import { PreviewTest } from "./PreviewTest";
 import { useNavigate } from "react-router-dom";
 
-export const CreateTest = () => {
+const CreateTest = () => {
   const [questions, setQuestions] = useState([]);
   const [questionIDs, setQuestionIDs]=useState([])
   const [title,setTitle]=useState('')
@@ -10,7 +10,7 @@ export const CreateTest = () => {
   const [showPreview, setShowPreview]=useState(false)
 
   //State for each question
-  const navigator=useNavigate
+  const navigator=useNavigate()
 
   const [question,setQuestion]=useState('')
   const [option1,setOption1]=useState('')
@@ -125,7 +125,9 @@ export const CreateTest = () => {
 
       </form>
       )}
-      {showPreview && <PreviewTest test closeHandler={()=>navigator('/tests')}/>}
+      {showPreview && <PreviewTest t={test} closeHandler={()=>navigator('/tests')}/>}
     </div>
   )
 };
+
+export default CreateTest

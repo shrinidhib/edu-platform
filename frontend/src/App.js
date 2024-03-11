@@ -4,9 +4,10 @@ import Navbar from './components/Navbar';
 import MyNotes from './pages/MyNotes';
 import { Videos } from './pages/Videos';
 import { VideoView } from './pages/VideoView';
-import { CreateTest } from './pages/CreateTest';
 import { PreviewTest } from './pages/PreviewTest';
 import { Tests } from './pages/Tests';
+import CreateTest from './pages/CreateTest';
+
 
 
 function App() {
