@@ -1,34 +1,51 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthContextProvider } from './context/AuthContext' // Import from correct path
+import { useAuthContext } from './hooks/useAuthContext';
+import {ForumsContextProvider} from './context/ForumContext'
+import AllForums from './pages/AllForums';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import Navbar from './components/Navbar';
-
-import MyNotes from './pages/MyNotes';
-import { Videos } from './pages/Videos';
-import { VideoView } from './pages/VideoView';
-import { CreateTest } from './pages/CreateTest';
-import { PreviewTest } from './pages/PreviewTest';
-import { Tests } from './pages/Tests';
-
+import CreateForum from './pages/CreateForum';
+import DisplayForum from './pages/DisplayForum';
 
 function App() {
   return (
     <div className="App">
-      
       <BrowserRouter>
-      <Navbar/>
-      <div className='pages'>
-        <Routes>
-          <Route path='/' element={<Videos/>}/>
-          <Route path='/mynotes' element={<MyNotes/>}/>
-          <Route path='/watch/:videoId' element={<VideoView/>}/>
-          <Route path='/createtest' element={<CreateTest/>}/>
-          <Route path='/tests' element={<Tests/>}/>
-        </Routes>
-      </div>
+        {/* Wrap the entire app with AuthContextProvider */}
+        <AuthContextProvider>
+          <ForumsContextProvider>
+            <Navbar />
+            <div className="pages">
+              <Routes>
+                <Route
+                  path="/"
+                  element={<AllForums />} 
+                />
+                <Route
+                  path="/login"
+                  element={<Login />} 
+                />
+                <Route
+                  path="/signup"
+                  element={<Signup />} 
+                />
+                <Route
+                  path="/createforum"
+                  element={<CreateForum/>}
+                />
+                <Route
+                  path="/forums/:forumID"
+                  element={<DisplayForum/>}
+                />
+              </Routes>
+            </div>
+          </ForumsContextProvider>
+        </AuthContextProvider>
       </BrowserRouter>
-
-      
     </div>
   );
 }
 
-export default App;
+export default App

@@ -1,35 +1,34 @@
 require('dotenv').config()
-const express=require('express')
-const cors=require('cors')
-const mongoose=require('mongoose')
-const noteRoutes=require('./routes/notes')
-const videoRoutes=require('./routes/videos')
-const questionRoutes=require('./routes/question')
-const testRoutes=require('./routes/test')
 
 
-const app=express()
+const express = require('express')
+const mongoose =require('mongoose')
+const forumRoutes = require('./routes/forum')
+const userRoutes = require('./routes/user')
 
-app.use(cors())
+const app = express()
 
 app.use(express.json())
 
 app.use((req,res,next)=>{
-    console.log(req.path, req.method)
+    console.log(req.path,req.method)
     next()
 })
 
-app.use('/notes/', noteRoutes)
-app.use('/videos/', videoRoutes) 
-app.use('/questions/', questionRoutes)
-app.use('/test/', testRoutes)
+
+
+
+app.use('/api/forums',forumRoutes)
+app.use('/api/user',userRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
-.then(()=>{
-    app.listen(process.env.PORT,()=>{
-        console.log('listening')
+    .then(()=>{
+        app.listen(process.env.PORT, ()=>{
+            console.log(' serverlistening on 4005')
+        })
     })
-})
-    .catch((e)=>{
-        console.log(e)
+    .catch((error)=>{
+        console.log(error)
     })
+// listen for requests
+
