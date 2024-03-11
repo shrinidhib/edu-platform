@@ -3,8 +3,16 @@
     padding: 20px;
     border-radius: 15px;
     color: white;
+    position: relative;
 }
 
 .title{
     text-align: center;
+}
+
+.close-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
 }

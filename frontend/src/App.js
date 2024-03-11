@@ -21,7 +21,6 @@ function App() {
           <Route path='/mynotes' element={<MyNotes/>}/>
           <Route path='/watch/:videoId' element={<VideoView/>}/>
           <Route path='/createtest' element={<CreateTest/>}/>
-          <Route path='/preview' element={<PreviewTest/>}/>
           <Route path='/tests' element={<Tests/>}/>
         </Routes>
       </div>

@@ -38,15 +38,34 @@ const createTest=async(req,res)=>{
         const test= await Test.create({questions,title,teacherId})
         return res.status(200).json(test)
     }catch(err){
+        console.log(err.message)
         return res.status(400).json({error: err.message})
     }
 
+}
+
+const editTest=async(req,res)=>{
+    const {id}=req.params
+    const newQuestion=req.body.newQuestion
+    const index=req.body.index
+    console.log(newQuestion, index)
+    try{
+        let test=await Test.findOne({_id: id})
+        test.questions[index]=newQuestion
+        console.log(test)
+        const updatedTest=await Test.findByIdAndUpdate(id, test,{new: true})
+        console.log(updatedTest)
+        return res.status(200).json(updatedTest)
+    }catch(err){
+        return res.status(400).json({error: err.message})
+    }
 }
 
 module.exports={
     getAlltests,
     getTeacherTests,
     fetchTest,
-    createTest
+    createTest,
+    editTest
 }
 

@@ -17,3 +17,7 @@
 .edit-icon{
     cursor: pointer;
 }
+
+.option-input{
+    padding-left: 10px;
+}

@@ -5,8 +5,10 @@ import { MdModeEditOutline } from "react-icons/md";
 
 
 
-const Question = ({q, index}) => {
-    const {_id, question,options, answer}=q
+const Question = ({q, index,testId}) => {
+    const [question,setQuestion]=useState(q.question)
+    const [options, setOptions]=useState(q.options)
+    const [answer, setAnswer]=useState(q.answer)
     const [showEdit, setShowEdit]=useState(false)
 
     //edit state
@@ -18,8 +20,35 @@ const Question = ({q, index}) => {
     const [newanswer,setNewAnswer]=useState(answer)
 
 
-    const editHandler=()=>{
-        setShowEdit(false)
+    const editHandler=async(e)=>{
+        e.preventDefault()
+        const body={
+            newQuestion:{
+                question: newquestion,
+                options: [option1, option2, option3, option4],
+                answer: newanswer
+            },
+            index: index
+        }
+        console.log(body)
+        const response=await fetch(`http://localhost:4005/test/${testId}`,{
+            method: 'PATCH',
+            body: JSON.stringify(body),
+            headers: {
+                'content-type': 'application/json'
+            }
+        }
+        )
+        const json=await response.json()
+        if (!response.ok){
+            console.log(json.error)
+        }
+        else{
+            setQuestion(newquestion)
+            setOptions([option1,option2,option3,option4])
+            setAnswer(newanswer)
+            setShowEdit(false)
+        }
     }
   return (
     <div>

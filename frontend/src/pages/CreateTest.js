@@ -1,13 +1,16 @@
 import React, { useState , useEffect} from "react";
 import { PreviewTest } from "./PreviewTest";
+import { useNavigate } from "react-router-dom";
 
 export const CreateTest = () => {
   const [questions, setQuestions] = useState([]);
+  const [questionIDs, setQuestionIDs]=useState([])
   const [title,setTitle]=useState('')
   const [number, setNumber] = useState(1);
   const [showPreview, setShowPreview]=useState(false)
 
   //State for each question
+  const navigator=useNavigate
 
   const [question,setQuestion]=useState('')
   const [option1,setOption1]=useState('')
@@ -32,25 +35,13 @@ export const CreateTest = () => {
     console.log(questions)
       e.preventDefault()
       const q={question:question, options: [option1,option2,option3,option4], answer: answer}
-      const response=await fetch("http://localhost:4005/questions/",{
-        method: 'POST',
-        body: JSON.stringify(q),
-        headers:{
-          'Content-type': 'application/json'
-        }
-      })
-      const json=await response.json()
-      if (response.ok){
-        console.log(json)
-        setQuestions((prev)=>[...prev,json])
-        reset()
-        setNumber((prev)=>prev+1)
-        
-      }
+      setQuestions((prev)=>[...prev,q])
+      reset()
+      setNumber((prev)=>prev+1)
 
   }
   useEffect(() => {
-    if (number === 11) {
+    if (number >= 11) {
       testSubmitHandler();
     }
   }, [number]);
@@ -74,6 +65,9 @@ export const CreateTest = () => {
         console.log(json)
         setTest(json)
         setShowPreview(true)
+      }
+      else{
+        console.log(json)
       }
 
 
@@ -131,7 +125,7 @@ export const CreateTest = () => {
 
       </form>
       )}
-      {showPreview && <PreviewTest test/>}
+      {showPreview && <PreviewTest test closeHandler={()=>navigator('/tests')}/>}
     </div>
   )
 };
