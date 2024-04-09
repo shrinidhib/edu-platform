@@ -1,14 +1,20 @@
 import { useEffect } from "react"
 import Note from "../components/Note/Note"
 import { useNoteContext } from "../hooks/useNoteContext"
+import { useAuthContext } from "../hooks/useAuthContext"
 
 const MyNotes=()=>{
     const {notes,dispatch}=useNoteContext()
+    const {user}=useAuthContext()
+
 
     useEffect(()=>{
         const fetchnotes=async()=>{
-            const response=await fetch('http://localhost:4005/notes/',{
+            const response=await fetch(`http://localhost:4005/notes/${user.user._id}`,{
                 method: "GET",
+                headers:{
+                    "Authorization":`Bearer ${user.token}`
+                }
             })
             const json=await response.json()
             if (response.ok){
@@ -25,7 +31,7 @@ const MyNotes=()=>{
          <div className="mynotes">
             {notes && notes.map((note)=>{
                 return (
-                    <Note note={note}/>
+                    <Note key={note._id} note={note}/>
                 )
             })}
         </div>

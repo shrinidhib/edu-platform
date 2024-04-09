@@ -1,6 +1,7 @@
 import React, { useState , useEffect} from "react";
 import { PreviewTest } from "./PreviewTest";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const CreateTest = () => {
   const [questions, setQuestions] = useState([]);
@@ -8,6 +9,7 @@ const CreateTest = () => {
   const [title,setTitle]=useState('')
   const [number, setNumber] = useState(1);
   const [showPreview, setShowPreview]=useState(false)
+  const {user}=useAuthContext()
 
   //State for each question
   const navigator=useNavigate()
@@ -51,13 +53,14 @@ const CreateTest = () => {
       const t={
         questions: questions,
         title: title,
-        teacherId:3
+        teacherId:user.user._id
       }
       const response=await fetch("http://localhost:4005/test/",{
         method: 'POST',
         body: JSON.stringify(t),
         headers:{
-          'content-type': 'application/json'
+          'content-type': 'application/json',
+          "Authorization":`Bearer ${user.token}`
         }
       })
       const json=await response.json()

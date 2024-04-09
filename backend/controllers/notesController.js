@@ -4,13 +4,15 @@ const Note=require('../models/noteModel')
 const getUserNotes=async(req,res)=>{
     //add user id later
     // const user_id=req.user._id
-    const user_id=3
-    const notes = await Note.find({user_id}).sort({createdAt:-1})
+    const {id}=req.params
+    const notes = await Note.find({user_id : id}).sort({createdAt:-1})
     res.status(200).json(notes)
 }
 
 const createNote=async(req,res)=>{
     const {title,content}=req.body
+    const user_id=req.params.id
+    console.log(user_id)
     let emptyFields=[]
     if (!title){
         emptyFields.push('title')
@@ -23,7 +25,7 @@ const createNote=async(req,res)=>{
     }
     try{
         // const user_id=req.user._id
-        const user_id=3
+        
         const note=await Note.create({title,content,user_id})
         res.status(200).json(note)
     }catch(err){
@@ -50,6 +52,7 @@ const updateNote=async(req,res)=>{
         return res.status(400).json({msg:"invalid id"})
     }
     const {title,content}=req.body
+    const {userID}=req.body
     let emptyFields=[]
     if (!title){
         emptyFields.push('title')

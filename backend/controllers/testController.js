@@ -61,11 +61,27 @@ const editTest=async(req,res)=>{
     }
 }
 
+const deleteTest=async(req,res)=>{
+    const {id}=req.params
+    console.log(id)
+    if (!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(400).json({msg:"invalid id"})
+    }
+    const test=await Test.findOneAndDelete({_id: id})
+    console.log(test)
+    if (!test){
+        return res.status(400).json({msg:"no such workout"})
+    }
+
+    res.status(200).json(test)
+}
+
 module.exports={
     getAlltests,
     getTeacherTests,
     fetchTest,
     createTest,
-    editTest
+    editTest,
+    deleteTest
 }
 

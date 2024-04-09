@@ -6,6 +6,14 @@ const videoSchema=new Schema({
     url: {
         type: String,
         required: true
+    },
+    title:{
+        type:String,
+        required:true
+    },
+    teacher_id:{
+        type:String,
+        required:true
     }
 },{timestamps: true})
 

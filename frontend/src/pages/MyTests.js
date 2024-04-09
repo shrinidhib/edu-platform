@@ -10,7 +10,7 @@ const Tests = () => {
     const [currentTest, setCurrentTest]=useState(null)
     const {user}=useAuthContext()
     const fetchTests=async()=>{
-        const response=await fetch(`http://localhost:4005/test/`,{
+        const response=await fetch(`http://localhost:4005/test/mytests/${user.user._id}`,{
             method: 'GET',
             headers:{
                 'content-type':'application/json',
@@ -33,12 +33,41 @@ const Tests = () => {
         setCurrentTest(t)
         setShowPreview(true)
     }
+    const deleteHandler=async(id)=>{
+        const isConfirmed = window.confirm("Are you sure you want to delete this test?")
+
+        if (isConfirmed){
+            const response=await fetch(`http://localhost:4005/test/${id}`,{
+            method: 'DELETE',
+            headers:{
+                'content-type':'application/json',
+                "Authorization":`Bearer ${user.token}`
+                
+            }
+        })
+        if (response.ok){
+            console.log('deleted')
+            let newTests=[]
+            for (const r of tests){
+                console.log(r)
+                if (r._id!==id){
+                    newTests.push(r)
+                }
+            }
+            console.log(newTests)
+            setTests(newTests)
+        }
         
+        }
+        
+    }
 
   return (
     <div>
-        <div>
-                <div className='title'>All Tests</div>
+        {!showPreview && 
+
+            <div>
+                <div className='title'>My Tests</div>
                 <div className='tests-container'>
             {tests.length!==0 && tests.map((t, i)=>(
                 <div key={t._id}>
@@ -55,10 +84,18 @@ const Tests = () => {
                     </div>
                     <p className='created-at'>Created at: {t.createdAt.substring(0,10)}</p>
                 </div>
+                <div className='delete-section'onClick={()=>{
+                    deleteHandler(t._id)}}>
+                    <p>Delete</p>
+                    <MdDelete size={24} className='delete-test' />
+                </div>
                 </div>
                 ))}
                 </div>
             </div>
+        }
+        {showPreview && <PreviewTest t={currentTest} closeHandler={()=>setShowPreview(false)}/>}
+        
     </div>
   )
 }

@@ -1,35 +1,86 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Navbar from './components/Navbar';
+import React,{useEffect, useState} from 'react'
+import {BrowserRouter,Routes,Route,Link,Navigate} from "react-router-dom"
+import Home from './pages/Home.js'
+import Navbar from './components/Navbar/Navbar.js'
+import LinkElement from './components/LinkElement.js'
+import { RiHome2Line } from "react-icons/ri";
+import { GoBook } from "react-icons/go";
+import { IoDocumentsOutline } from "react-icons/io5";
+import { LiaVideoSolid } from "react-icons/lia";
+import { FaRegNoteSticky } from "react-icons/fa6";
+import { GrTest } from "react-icons/gr";
+import { TiPencil } from "react-icons/ti";
+import Signup from './pages/Signup.js'
+import Login from './pages/login.js'
+import MyNotes from './pages/MyNotes.js'
+import CreateTest from './pages/CreateTest.js'
+import MyTests from './pages/MyTests.js'
+import Tests from './pages/Tests.js'
+import { useAuthContext } from './hooks/useAuthContext.js'
+import Learn from './pages/Learn.js'
+import { VideoView } from './pages/VideoView.js'
+import { Videos } from './pages/Videos.js'
+import AllVid from './pages/AllVid.js'
 
-import MyNotes from './pages/MyNotes';
-import { Videos } from './pages/Videos';
-import { VideoView } from './pages/VideoView';
-import { PreviewTest } from './pages/PreviewTest';
-import { Tests } from './pages/Tests';
-import CreateTest from './pages/CreateTest';
-
-
-
-function App() {
+// http://localhost3000/signup
+const App = () => {
+  const [activeLink,setActiveLink]=useState("")
+  const {user}=useAuthContext()
+  let designation
+  let check=false
+  if(user){
+    designation=user.user.designation
+    if(designation==="Teacher"){
+      check=true
+    }
+  }
+  const handleClick=(text)=>{
+    setActiveLink(text)
+  }
+  console.log(designation)
+  console.log(check)
   return (
-    <div className="App">
-      
+    <div className='App'>
       <BrowserRouter>
       <Navbar/>
-      <div className='pages'>
-        <Routes>
-          <Route path='/' element={<Videos/>}/>
-          <Route path='/mynotes' element={<MyNotes/>}/>
-          <Route path='/watch/:videoId' element={<VideoView/>}/>
-          <Route path='/createtest' element={<CreateTest/>}/>
-          <Route path='/tests' element={<Tests/>}/>
-        </Routes>
-      </div>
+        <div className='layout'>
+          {user && <div className='sidebar'>
+            <div className='links'>
+              <ul>
+              <li onClick={()=>{handleClick("Home")}}><LinkElement active={activeLink} text="Home" icon={<RiHome2Line/>} path="/"/></li>
+              <li onClick={()=>{handleClick("Teach")}}>{check?<LinkElement active={activeLink} text="Teach" icon={<GoBook/>} path="/addvideos"/>:<LinkElement text="Learn" active={activeLink} icon={<GoBook/>} path="/learn"/>}</li>
+              <li onClick={()=>{handleClick("Videos")}}>{check && <LinkElement active={activeLink} text="Videos" icon={<LiaVideoSolid/>} path="/allvideos"/>}</li>
+              <li onClick={()=>{handleClick("Docs")}}>{check && <LinkElement active={activeLink} text="Docs" icon={<IoDocumentsOutline/>} path="/addvideos"/>}</li>
+              <li>{!check && <LinkElement active={activeLink} text={"My Notes"} icon={<FaRegNoteSticky />} path="/mynotes"/>}</li>
+              <li>{check && <LinkElement active={activeLink} text={"My Tests"} icon={<GrTest />} path="/mytests"/>}</li>
+              <li>{!check && <LinkElement active={activeLink} text={"Tests"} icon={<GrTest />} path="/tests"/>}</li>
+              <li>{check && <LinkElement active={activeLink} text={"Create Test"} icon={<TiPencil />} path="/createtest"/>}</li>
+              </ul>
+            </div>
+          </div>}
+          <div className='pages'>
+            <Routes>
+              <Route path='/' element={user?<Home/>:<Navigate to="/login"/>}/>
+              <Route path="/login" element={!user?<Login/>:<Navigate to='/'/>}/>
+              <Route path="/signup" element={!user?<Signup/>:<Navigate to='/'/>}/>
+              <Route path='/learn' element={check?<Navigate to='/addvideos'/>:<Learn/>}/>
+              <Route path='/allvideos' element={<AllVid/>}/>
+              <Route path='/mynotes' element={!check?<MyNotes/>:null}/>
+              <Route path='/watch/:videoId' element={user?<VideoView/>:null}/>
+              <Route path='/createtest' element={check?<CreateTest/>: null}/>
+              <Route path='/mytests' element={check?<MyTests/>:null}/>
+              <Route path='/tests' element={!check?<Tests/>:null}/>
+              <Route path='/addvideos' element={check?<Videos/>:<Navigate to='/learn'/>}/>
+            </Routes>
+          </div>
+        </div>
       </BrowserRouter>
-
-      
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
+
+
+
+

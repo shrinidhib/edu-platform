@@ -1,0 +1,30 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+}
+
+.cont{
+background: #fff;
+height: 300px;
+
+}
+.cont h3{
+margin-top: 10px;
+margin-left:10px;
+}
+.recent{
+background: #fff;
+height: 300px;
+/* width: 90vw; */
+padding: 10px;
+}
+.recent-box{
+margin: 10px;
+display: flex;
+align-items: center;
+justify-content: flex-start;
+overflow-x: scroll;
+gap:10px;
+}

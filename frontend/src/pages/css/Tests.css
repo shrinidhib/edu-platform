@@ -4,6 +4,18 @@
     padding: 10px;
 }
 
+.delete-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    color: #8a0114;
+}
+
+.delete-test{
+   padding-right: 10px;
+}
 .tests-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;

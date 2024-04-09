@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNoteContext } from '../../hooks/useNoteContext'
 import './EditNote.css'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 const EditNote=({note, editHandler, modalHandler})=>{
     const [title,setTitle]=useState(note.title)
@@ -8,16 +9,19 @@ const EditNote=({note, editHandler, modalHandler})=>{
     const [error,setError]=useState('')
     const [empty,setEmpty]=useState([])
     const {dispatch}=useNoteContext()
+    const {user}=useAuthContext()
 
     const submitEditHandler=async(e)=>{
         e.preventDefault()
         // const note={title,content}
-        const edited_note={title,content}
+        const edited_note={title,content,userID: user.user._id}
         const response=await fetch(`http://localhost:4005/notes/${note._id}`,{
             method: 'PATCH',
             body: JSON.stringify(edited_note),
             headers:{
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Authorization":`Bearer ${user.token}`
+                
             }
         })
         const json=await response.json()

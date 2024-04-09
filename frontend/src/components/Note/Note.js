@@ -5,12 +5,14 @@ import { MdDelete } from "react-icons/md";
 import { useNoteContext } from '../../hooks/useNoteContext';
 import EditNote from '../EditNote/EditNote';
 import './Note.css'
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 const Note=({note})=>{
 
     const [showNote,setShowNote]=useState(false)
     const [showEdit,setShowEdit]=useState(false)
     const {dispatch} = useNoteContext()
+    const {user}=useAuthContext()
     const modalHandler=()=>{
         setShowNote(!showNote)
     }
@@ -28,7 +30,9 @@ const Note=({note})=>{
             method: 'DELETE',
             body: JSON.stringify(note),
             headers:{
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Authorization":`Bearer ${user.token}`
+                
             }
             })
             const json =await response.json()

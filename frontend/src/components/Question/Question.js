@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import './Question.css'
 import { MdModeEditOutline } from "react-icons/md";
+import { useAuthContext } from '../../hooks/useAuthContext';
 
 
 
@@ -10,6 +11,7 @@ const Question = ({q, index,testId}) => {
     const [options, setOptions]=useState(q.options)
     const [answer, setAnswer]=useState(q.answer)
     const [showEdit, setShowEdit]=useState(false)
+    const {user}=useAuthContext()
 
     //edit state
     const [newquestion,setNewQuestion]=useState(question)
@@ -35,7 +37,9 @@ const Question = ({q, index,testId}) => {
             method: 'PATCH',
             body: JSON.stringify(body),
             headers: {
-                'content-type': 'application/json'
+                'content-type': 'application/json',
+                "Authorization":`Bearer ${user.token}`
+                
             }
         }
         )

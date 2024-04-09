@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Draggable from 'react-draggable'
 import './Noteform.css'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 
 const NoteForm=({toggleModal})=>{
@@ -9,15 +10,19 @@ const NoteForm=({toggleModal})=>{
     const [error,setError]=useState('')
     const [empty,setEmpty]=useState([])
 
+    const {user}=useAuthContext()
+
     const submitHandler=async(e)=>{
         e.preventDefault()
 
         const note={title,content}
-        const response=await fetch("http://localhost:4005/notes/",{
+        const response=await fetch(`http://localhost:4005/notes/${user.user._id}`,{
             method: 'POST',
             body: JSON.stringify(note),
             headers:{
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
+                "Authorization":`Bearer ${user.token}`
+                
             }
         })
         const json=await response.json()
@@ -42,14 +47,14 @@ const NoteForm=({toggleModal})=>{
                     type="text"
                     onChange={(e)=>setTitle(e.target.value)}
                     value={title}
-                    className={empty.includes('title')? "error": ''}
+                    className={empty && empty.includes('title')? "error": ''}
                     />
                 <label>Content: </label>
                 <textarea
                     type="text"
                     onChange={(e)=>setContent(e.target.value)}
                     value={content}
-                    className={empty.includes('content')? "error content": 'content'}
+                    className={empty && empty.includes('content')? "error content": 'content'}
                     maxLength="1500"
                     />
                 <div className='options'>
