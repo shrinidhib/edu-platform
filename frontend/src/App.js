@@ -48,13 +48,17 @@ const App = () => {
             <div className='links'>
               <ul>
               <li onClick={()=>{handleClick("Home")}}><LinkElement active={activeLink} text="Home" icon={<RiHome2Line/>} path="/"/></li>
-              <li onClick={()=>{handleClick("Teach")}}>{check?<LinkElement active={activeLink} text="Teach" icon={<GoBook/>} path="/addvideos"/>:<LinkElement text="Learn" active={activeLink} icon={<GoBook/>} path="/learn"/>}</li>
+              <li onClick={()=>{if (check){
+                handleClick("Teach")}
+                else{
+                  handleClick('Learn')
+                }}}>{check? <LinkElement active={activeLink} text="Teach" icon={<GoBook/>} path="/addvideos"/> : <LinkElement text="Learn" active={activeLink} icon={<GoBook/>} path="/learn"/>}</li>
               <li onClick={()=>{handleClick("Videos")}}>{<LinkElement active={activeLink} text="Videos" icon={<LiaVideoSolid/>} path="/allvideos"/>}</li>
               <li onClick={()=>{handleClick("Docs")}}>{check && <LinkElement active={activeLink} text="Docs" icon={<IoDocumentsOutline/>} path="/addvideos"/>}</li>
-              <li>{!check && <LinkElement active={activeLink} text={"My Notes"} icon={<FaRegNoteSticky />} path="/mynotes"/>}</li>
-              <li>{check && <LinkElement active={activeLink} text={"My Tests"} icon={<GrTest />} path="/mytests"/>}</li>
-              <li>{!check && <LinkElement active={activeLink} text={"Tests"} icon={<GrTest />} path="/tests"/>}</li>
-              <li>{check && <LinkElement active={activeLink} text={"Create Test"} icon={<TiPencil />} path="/createtest"/>}</li>
+              <li onClick={()=>{handleClick("My Notes")}}>{!check && <LinkElement active={activeLink} text={"My Notes"} icon={<FaRegNoteSticky />} path="/mynotes"/>}</li>
+              <li onClick={()=>{handleClick("My Tests")}}>{check && <LinkElement active={activeLink} text={"My Tests"} icon={<GrTest />} path="/mytests"/>}</li>
+              <li onClick={()=>{handleClick("Tests")}}>{!check && <LinkElement active={activeLink} text={"Tests"} icon={<GrTest />} path="/tests"/>}</li>
+              <li onClick={()=>{handleClick("Create Test")}}>{check && <LinkElement active={activeLink} text={"Create Test"} icon={<TiPencil />} path="/createtest"/>}</li>
               </ul>
             </div>
           </div>}
