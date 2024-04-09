@@ -3,6 +3,7 @@ const Forum = require('../models/forumModel')
 const Message= require('../models/messageModel')
 const mongoose = require('mongoose')
 
+
 // get all workouts
 const getAllForums = async (req, res) => {
   //const user_id = req.user._id
@@ -11,7 +12,6 @@ const getAllForums = async (req, res) => {
 
   res.status(200).json(forums)
 }
-
 
 const getForum = async (req, res) => {
   try {
