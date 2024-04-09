@@ -1,0 +1,23 @@
+.preview-option{
+    background-color: white;
+    margin: 15px;
+    border-radius: 10px;
+    color: black;
+    padding: 7px;
+    padding-left: 15px;
+}
+
+.preview-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.edit-icon{
+    cursor: pointer;
+}
+
+.option-input{
+    padding-left: 10px;
+}

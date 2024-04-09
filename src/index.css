@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+body {
+  margin: 0;
+  font-family:'Montserrat', sans-serif;
+  box-sizing: border-box;
+  /* background: #d3a29d; */
+  background: #fbe4d8;
+  
+}
+
+header{
+  /* background: #a36361; */
+  background: #190019;
+  
+}
+
+header .container{
+  max-width: 1400px;
+  
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a{
+  color: white;
+  text-decoration: none;
+}
+.nav-item{
+  margin:10px;
+  font-size: 1.3rem;
+  display: flex;
+}
+.pages{
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.mynotes{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 1.5em;
+ 
+}
+
+.error{
+  color: var(--error);
+}
+
+.video_list{
+  display: flex;
+  gap: 20px;
+  overflow-x: scroll;
+}
+
+.video{
+  height: 600px;
+  width: 1200px;
+}
+
+.video-view-page{
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  align-items: center;
+}
+
+.createnote-btn{
+  background-color: #eecc8c;
+  margin-left: 20%;
+  padding: 40px;
+  font-size: 1.2rem;
+}
+
+.nav-link{
+  margin: 10px
+}
+
+.question-form{
+  background-color: #ae445a;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  margin: 10px auto;
+  
+  
+}
+.question-section{
+  display: flex;
+  flex-direction: column;
+}
+.question-label{
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: white;
+  margin: 10px 0;
+}
+
+.title-container{
+  display: flex;
+  justify-content: center;
+}
+
+.question-header{
+  text-align: center;
+  font-size: 1.8rem;
+  padding: 10px;
+  color: white;
+}
+.question{
+  background-color: white;
+  margin-top: 10px;
+  height: 70px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: none;
+
+}
+
+.options-section{
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+
+}
+
+.option{
+  display: flex;
+  gap: 15px;
+}
+
+.option-input{
+  border-radius: 10px;
+  border: none;
+  margin: 5px;
+  width: 80%;
+}
+
+.title-input{
+  margin: 15px;
+  font-size: 2rem;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 30px;
+  width: 50%;
+  overflow-x: auto;
+  
+}
+
+
+.button-section{
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 5px;
+}
+
+.reset-button{
+  background-color: #fbe4d8;
+}
+
+.answer-selector{
+  padding: 10px;
+  margin: 5px;
+  width: 200px;
+  overflow-x: hidden;
+}
+
+.answer-section{
+  display: flex;
+  gap: 20px;
+}
