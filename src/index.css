@@ -1,0 +1,300 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Kumbh+Sans&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* layout */
+:root {
+  --primary: #643ca9;
+  --error: #e7195a;
+}
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Roboto Mono";
+}
+.App{
+  box-sizing: border-box;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; /* Example background color */
+  color: #fff; /* Example text color */
+  z-index: 1000; /* Ensure it's above other content */
+}
+header .container {
+  
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #333;
+  text-decoration: none;
+}
+header span{
+  color:#333;
+}
+.pages{
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* homepage */
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+.forum-details {
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.forum-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.forum-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.forum-details span {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+.createforum{
+  margin-top: 50px;
+}
+
+/* new workout form */
+label, input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
+
+/* navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  margin-left: 10px;
+}
+nav button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 10px;
+}
+
+/* auth forms */
+form.signup, form.login {
+  
+  max-width: 400px;
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.forums{
+  margin-top: 70px;
+}
+
+.forum-details button{
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 5px;
+}
+
+.displayforum{
+  align-items: center;
+  background-color:#fff;
+ 
+}
+/* Container for message list */
+.message-list {
+  margin-top: 90px;
+  margin-bottom:99px;
+  list-style-type: none;
+  padding: auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* overflow-x: hidden; */
+  
+}
+
+*{
+  overflow-x: hidden;
+}
+
+/* Individual message item */
+.message-item {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 0;
+  width: 58%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px; /* Rounded corners for a modern look */
+  background-color: #f9f9f9; /* Light gray background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Message content */
+.message-content {
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #333; /* Dark text color */
+}
+
+/* Message meta information */
+.message-meta {
+  font-size: 14px;
+  color: #801f1f; /* Lighter text color */
+}
+
+/* Styling for logged-in user's messages */
+.logged-in-message {
+  background-color: #dff0d8; /* Light green background */
+  align-items: flex-end;
+  align-self: flex-end;
+}
+
+/* Styling for other users' messages */
+.other-message {
+  background-color: #fff;
+}
+
+/* Hover effect for message items */
+.message-item:hover {
+  transform: translateY(-2px); /* Lift the message on hover */
+  transition: transform 0.2s ease-in-out; /* Smooth transition */
+}
+
+.message-name{
+  color:#b7200f;
+}
+
+.create {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light gray background */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+ 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.create h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333; /* Dark text color */
+}
+
+.create input[type="text"] {
+  width: 70%; /* Adjust for input padding */
+  padding: 5px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px; /* Add margin between input and label */
+}
+
+.create input[type="text"].error {
+  border-color: #d9534f; /* Red border for error */
+}
+
+.create label {
+  font-size: 16px;
+  color: #333; /* Dark text color */
+  display: block;
+  margin-bottom: 8px;
+}
+
+.create button {
+  padding: 5px 10px;
+  background-color: #007bff; /* Blue button color */
+  color: #fff; /* White text color */
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+ 
+}
+
+.create button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.create .error {
+  margin-top: 10px;
+  color: #d9534f; /* Red text color for error message */
+  font-size: 14px;
+}
