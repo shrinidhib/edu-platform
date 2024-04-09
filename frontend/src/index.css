@@ -52,132 +52,13 @@ body {
 
 
 
-.learn{
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  padding: 20px;
-}
 
-.profile{
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background-color:rgba(0,0,0,0.5);
-}
-.details{
-  background: #fff;
-  position: relative;
-  height: 300px;
-  width: 500px;
-  padding: 20px;
-  border-radius: 10px;
-}
-.details div{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.details span{
-  position: absolute;
-  top:5px;
-  right: 10px;
-}
-
-form.signup, form.login {
-  max-width: 400px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 4px;
-}
-
-label, input {
-  display: block;
-}
-input,select {
-  padding: 10px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  width: 100%;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-form button {
-  background: var(--primary);
-  border: 0;
-  color: #fff;
-  padding: 10px;
-  font-family: "Poppins";
-  border-radius: 4px;
-  cursor: pointer;
-}
-div.error {
-  padding: 10px;
-  background: #ffefef;
-  border: 1px solid var(--error);
-  color: var(--error);
-  border-radius: 4px;
-  margin: 20px 0;
-}
-input.error {
-  border: 1px solid var(--error);
-}
-.thumbnail-container{
-  padding: 10px;
-}
-
-.thumbnail{
-  height: 200px;
-}
-.video_list{
-  margin: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  overflow-x: scroll;
-  gap:10px;
-}
-.video-list-outer{
-  background: #fff;
-  height: 300px;
-  width: 90vw;
-  padding: 10px;
-}
-.teacher-control{
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-}
 .allvids{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 }
-.learn a{
-  text-decoration: none;
-  color: #333;
-}
-.linkele.highlight{
-  font-weight: bold;
-}
-ul{
-  list-style-type: none;
-}
 
-
-.pages{
-  max-width: 1400px;
-  padding: 20px;
-  margin: 0 auto;
-}
 
 .mynotes{
   display: grid;

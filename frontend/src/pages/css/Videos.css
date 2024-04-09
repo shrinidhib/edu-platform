@@ -1,0 +1,14 @@
+.video_list{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    gap:10px;
+  }
+  .video-list-outer{
+    background: #fff;
+    height: 300px;
+    width: 90vw;
+    padding: 10px;
+  }

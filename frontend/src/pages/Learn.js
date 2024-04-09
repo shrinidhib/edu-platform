@@ -4,6 +4,8 @@ import { useAuthContext } from '../hooks/useAuthContext.js'
 import Thumbnail from '../components/Thumbnail/Thumbnail.js'
 import { useVideoContext } from '../hooks/useVideoContext.js'
 import { Link } from 'react-router-dom'
+import './css/Learn.css'
+import './css/Home.css'
 
 const Learn = () => {
     const {user}=useAuthContext()

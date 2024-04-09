@@ -1,6 +1,7 @@
 import React from 'react'
 import { IoCloseSharp } from "react-icons/io5";
-import { useAuthContext } from '../hooks/useAuthContext.js';
+import { useAuthContext } from '../../hooks/useAuthContext.js';
+import './Profile.css'
 
 const Profile = ({remove}) => {
     const {user}=useAuthContext()

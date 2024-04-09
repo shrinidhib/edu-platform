@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import  AddVideo  from '../components/AddVideo/AddVideo.js'
-import ThumbnailTeacher from '../components/ThumbnailTeacher.js'
+import ThumbnailTeacher from '../components/Thumbnail/ThumbnailTeacher.js'
 import { useVideoContext } from '../hooks/useVideoContext.js'
 import { useAuthContext } from '../hooks/useAuthContext.js'
+import './css/Videos.css'
 export const Videos = () => {
     const {videos,dispatch}=useVideoContext()
     const {user}=useAuthContext()

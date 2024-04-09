@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom'
 import { FaRegTrashCan } from "react-icons/fa6";
-import { useVideoContext } from '../hooks/useVideoContext';
-import { useAuthContext } from '../hooks/useAuthContext';
+import { useVideoContext } from '../../hooks/useVideoContext';
+import { useAuthContext } from '../../hooks/useAuthContext';
+import './Thumbnail.css'
 
 const ThumbnailTeacher = ({videoId,title,id}) => {
     const {dispatch}=useVideoContext()

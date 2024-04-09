@@ -36,3 +36,11 @@ header {
   .contain div a{
     margin-left: 10px;
   }
+
+  .linkele.highlight{
+    font-weight: bold;
+  }
+  ul{
+    list-style-type: none;
+  }
+  

@@ -1,0 +1,12 @@
+
+.learn{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 20px;
+  }
+  
+  .learn a{
+    text-decoration: none;
+    color: #333;
+  }
