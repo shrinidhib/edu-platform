@@ -48,13 +48,10 @@ const editTest=async(req,res)=>{
     const {id}=req.params
     const newQuestion=req.body.newQuestion
     const index=req.body.index
-    console.log(newQuestion, index)
     try{
         let test=await Test.findOne({_id: id})
         test.questions[index]=newQuestion
-        console.log(test)
         const updatedTest=await Test.findByIdAndUpdate(id, test,{new: true})
-        console.log(updatedTest)
         return res.status(200).json(updatedTest)
     }catch(err){
         return res.status(400).json({error: err.message})
@@ -63,12 +60,10 @@ const editTest=async(req,res)=>{
 
 const deleteTest=async(req,res)=>{
     const {id}=req.params
-    console.log(id)
     if (!mongoose.Types.ObjectId.isValid(id)){
         return res.status(400).json({msg:"invalid id"})
     }
     const test=await Test.findOneAndDelete({_id: id})
-    console.log(test)
     if (!test){
         return res.status(400).json({msg:"no such workout"})
     }

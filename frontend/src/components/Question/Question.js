@@ -32,7 +32,6 @@ const Question = ({q, index,testId}) => {
             },
             index: index
         }
-        console.log(body)
         const response=await fetch(`http://localhost:4005/test/${testId}`,{
             method: 'PATCH',
             body: JSON.stringify(body),

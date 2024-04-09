@@ -34,10 +34,7 @@ router.put("/update/:id",async (req,res)=>{
     try{
         const id=req.params.id
         const user=await User.findOne({_id:id})
-        console.log('user',user)
         const rec=user.recents
-        console.log('records:',rec)
-        console.log(req.body.newItem.title)
         for (const r of rec) {
             if (req.body.newItem.title === r.title) {
                 return res.status(200).json({ message: "Already in recents" });
@@ -50,7 +47,6 @@ router.put("/update/:id",async (req,res)=>{
         else{
             rec.unshift(req.body.newItem)
         }
-        console.log('rec2: ',rec)
         const data={
             username:user.username,
             email:user.email,
@@ -69,7 +65,7 @@ router.get("/recents/:id",async(req,res)=>{
     const id=req.params.id
     const user=await User.findOne({_id:id})
     const rec=user.recents
-    console.log(rec)
+    .log(rec)
     res.status(200).json({recents:rec});
 })
 

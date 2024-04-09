@@ -21,7 +21,6 @@ const AuthContextProvider=({children})=>{
             dispatch({type:"LOGIN",payload:user})
         }
     },[])// empty dependency array runs only for initial render/reload
-    console.log("user",state)
     return(
         <AuthContext.Provider value={{...state,dispatch}}>
             {children}

@@ -3,8 +3,6 @@ import './css/PreviewTest.css'
 import Question from '../components/Question/Question'
 export const PreviewTest =({t, closeHandler}) => {
     const [test,setTest]=useState(t)
-    console.log(test)
-    console.log(test.questions)
   return (
     <div>
     {test && 
@@ -15,7 +13,7 @@ export const PreviewTest =({t, closeHandler}) => {
           </div>
             {test.questions.map((q,i)=>(
               <div>
-              <Question key={i} index={i} q={q} testId={test._id}/>
+              <Question key={q._id} index={i} q={q} testId={test._id}/>
               </div>)
             )}
         </div>}

@@ -21,7 +21,6 @@ export const noteReducer=(state,action)=>{
             let newNotes=[]
             state.notes.forEach(n => {
                 if (n._id===action.payload._id){
-                    console.log(action.payload)
 
                     return newNotes.push(action.payload)
                 }
@@ -30,9 +29,6 @@ export const noteReducer=(state,action)=>{
                 }
                 
             });
-            
-
-            console.log(newNotes)
             return {
                 notes: newNotes
             }

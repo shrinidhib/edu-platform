@@ -37,8 +37,6 @@ const App = () => {
   const handleClick=(text)=>{
     setActiveLink(text)
   }
-  console.log(designation)
-  console.log(check)
   return (
     <div className='App'>
       <BrowserRouter>

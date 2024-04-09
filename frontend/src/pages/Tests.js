@@ -25,11 +25,9 @@ const Tests = () => {
         if (user){
             fetchTests()
         }
-        console.log(tests)
     },[user])
 
     const handleClick=(t)=>{
-        console.log('here1')
         setCurrentTest(t)
         setShowPreview(true)
     }

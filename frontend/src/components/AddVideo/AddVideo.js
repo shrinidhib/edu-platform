@@ -29,7 +29,6 @@ const AddVideo = () => {
                 }
             })
             const json=await response.json()
-            console.log(json)
             if (!response.ok){
                 setError(json.error)
                 console.log(error)
@@ -39,7 +38,6 @@ const AddVideo = () => {
                 setTitle('')
                 setError(null)
                 dispatch({type:"ADD_VIDEO",payload:json})
-                console.log("uploaded vid:",videos)
             }
         }
     }

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 
 
 const LinkElement = ({text,icon,path,active}) => {
-  console.log(active)
   return (
     <div className={`linkele ${active===text?"highlight":""}`}>
         <div>{icon}</div>

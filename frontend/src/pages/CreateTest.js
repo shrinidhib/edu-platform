@@ -34,7 +34,6 @@ const CreateTest = () => {
   }
 
   const questionSubmitHandler=async(e)=>{
-    console.log(questions)
       e.preventDefault()
       const q={question:question, options: [option1,option2,option3,option4], answer: answer}
       setQuestions((prev)=>[...prev,q])
@@ -49,7 +48,6 @@ const CreateTest = () => {
   }, [number]);
 
   const testSubmitHandler=async()=>{
-      console.log(questions)
       const t={
         questions: questions,
         title: title,
@@ -65,7 +63,6 @@ const CreateTest = () => {
       })
       const json=await response.json()
       if (response.ok){
-        console.log(json)
         setTest(json)
         setShowPreview(true)
       }

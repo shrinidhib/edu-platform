@@ -16,7 +16,6 @@ export const videosReducer=(state,action)=>{
 
 const VideoContextProvider=({children})=>{
     const [state,dispatch]=useReducer(videosReducer,{videos:null})
-    console.log("videos state",state)
     return(// ...state=videos
         <VideoContext.Provider value={{...state,dispatch}}>
             {children}

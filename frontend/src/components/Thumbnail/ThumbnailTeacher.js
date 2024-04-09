@@ -8,7 +8,6 @@ const ThumbnailTeacher = ({videoId,title,id}) => {
     const {dispatch}=useVideoContext()
     const {user}=useAuthContext()
     const handleDelete=async()=>{
-        console.log(id)
         const response=await fetch(`http://localhost:4005/videos/removevideo/${id}`,{
             method:"DELETE",
             headers:{
@@ -16,7 +15,6 @@ const ThumbnailTeacher = ({videoId,title,id}) => {
             }
         })
         const result=await response.json()
-        console.log(result)
         if(response.ok){
             dispatch({type:"DELETE_VIDEO",payload:result})
             console.log("deleted")

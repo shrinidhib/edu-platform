@@ -25,11 +25,9 @@ const Tests = () => {
         if (user){
             fetchTests()
         }
-        console.log(tests)
     },[user])
 
     const handleClick=(t)=>{
-        console.log('here1')
         setCurrentTest(t)
         setShowPreview(true)
     }
@@ -49,12 +47,10 @@ const Tests = () => {
             console.log('deleted')
             let newTests=[]
             for (const r of tests){
-                console.log(r)
                 if (r._id!==id){
                     newTests.push(r)
                 }
             }
-            console.log(newTests)
             setTests(newTests)
         }
         

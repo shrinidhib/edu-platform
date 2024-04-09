@@ -6,7 +6,6 @@ const Thumbnail = ({videoId,title}) => {
   const {user}=useAuthContext()
   const addItem=async(data)=>{
     const id=user.user._id
-    console.log(id)
     const response=await fetch(`http://localhost:4005/users/update/${id}`,{
         method:"PUT",
         body: JSON.stringify({newItem:data}),
