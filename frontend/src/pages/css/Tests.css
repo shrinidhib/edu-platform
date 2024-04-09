@@ -2,6 +2,7 @@
     font-size: 2rem;
     font-weight: bolder;
     padding: 10px;
+    overflow-x: hidden;
 }
 
 .delete-section{
@@ -22,6 +23,7 @@
     column-gap: 50px;
     row-gap: 50px;
     padding-top: 30px;
+    padding: 30px;
 }
 
 .test{
@@ -30,6 +32,7 @@
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
+    height: 250px;
 
 }
 

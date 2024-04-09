@@ -22,7 +22,7 @@ const Thumbnail = ({videoId,title}) => {
         <Link to={`/watch/${videoId}`}>
         <img className='thumbnail' src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} onClick={()=>{addItem({videoId,title})}}/>
         </Link>
-        <p>{title}</p>
+        <p className='thumbnail-title'>{title}</p>
     </div>
   )
 }

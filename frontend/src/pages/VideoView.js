@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import NoteForm from '../components/NoteForm/NoteForm'
 import { useAuthContext } from '../hooks/useAuthContext'
+import './css/VideoView.css'
 
 export const VideoView = () => {
     const [showAddNote, setShowAddNote]=useState(false)

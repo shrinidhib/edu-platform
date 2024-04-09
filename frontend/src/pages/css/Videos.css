@@ -12,3 +12,9 @@
     width: 90vw;
     padding: 10px;
   }
+
+  .video_list{
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+  }
