@@ -9,7 +9,9 @@ export const VideoView = () => {
     const [showButton, setShowButton]=useState(true)
     const {videoId}=useParams()
     const {user}=useAuthContext()
+    console.log(user.user.designation)
     const check=user.user.designation=='Teacher'
+    console.log(check)
     const toggleModal=()=>{
         setShowButton((prev)=>!prev)
         setShowAddNote((prev)=> !prev)
@@ -19,7 +21,7 @@ export const VideoView = () => {
         <div className='watch'>
         <iframe className='video' src={`https://www.youtube.com/embed/${videoId}`} title="YouTube video player" frameBorder="10"  allowFullScreen></iframe> 
         </div>
-        {!check &&
+        {check===false &&
         <>
           <div className='modal-button'>
               {showButton && <button className='createnote-btn' onClick={toggleModal}>Create Note</button>}

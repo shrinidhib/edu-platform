@@ -71,12 +71,34 @@ const deleteTest=async(req,res)=>{
     res.status(200).json(test)
 }
 
+const getTestTitleById = async (req, res) => {
+    const { id } = req.params; // Get test ID from request parameters
+
+    try {
+        // Fetch the test from the database
+        const test = await Test.findById(id);
+        
+        // Check if test exists
+        if (!test) {
+            return res.status(404).json({ error: 'Test not found' });
+        }
+
+        // Return the title of the test
+        res.status(200).json({ title: test.title });
+    } catch (error) {
+        console.error('Error fetching test title:', error);
+        res.status(500).json({ error: 'Error fetching test title' });
+    }
+};
+
+
 module.exports={
     getAlltests,
     getTeacherTests,
     fetchTest,
     createTest,
     editTest,
-    deleteTest
+    deleteTest,
+    getTestTitleById
 }
 

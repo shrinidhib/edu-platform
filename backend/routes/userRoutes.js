@@ -65,7 +65,6 @@ router.get("/recents/:id",async(req,res)=>{
     const id=req.params.id
     const user=await User.findOne({_id:id})
     const rec=user.recents
-    .log(rec)
     res.status(200).json({recents:rec});
 })
 

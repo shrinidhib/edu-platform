@@ -21,6 +21,9 @@ import Learn from './pages/Learn.js'
 import { VideoView } from './pages/VideoView.js'
 import { Videos } from './pages/Videos.js'
 import AllVid from './pages/AllVid.js'
+import TakeTest from './pages/TakeTest.js'
+import ViewAllScores from './pages/ViewAllScores.js'
+import DisplayScores from './pages/DisplayScores.js'
 
 // http://localhost3000/signup
 const App = () => {
@@ -71,7 +74,10 @@ const App = () => {
               <Route path='/watch/:videoId' element={user?<VideoView/>:null}/>
               <Route path='/createtest' element={check?<CreateTest/>: null}/>
               <Route path='/mytests' element={check?<MyTests/>:null}/>
+              <Route path='/viewallscores/:testID' element={<ViewAllScores/>}/>
+              <Route path='/displayscores' element={<DisplayScores/>}/>
               <Route path='/tests' element={!check?<Tests/>:null}/>
+              <Route path='/taketest/:testID' element={!check?<TakeTest/>:null}/>
               <Route path='/addvideos' element={check?<Videos/>:<Navigate to='/learn'/>}/>
             </Routes>
           </div>

@@ -12,7 +12,7 @@ const getUserNotes=async(req,res)=>{
 const createNote=async(req,res)=>{
     const {title,content}=req.body
     const user_id=req.params.id
-    console.log(user_id)
+
     let emptyFields=[]
     if (!title){
         emptyFields.push('title')
