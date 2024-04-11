@@ -5,6 +5,7 @@ import App from './App';
 import { NoteContextProvider } from './context/NoteContext';
 import VideoContextProvider from './context/VideoContext';
 import AuthContextProvider from './context/AuthContext';
+import { ForumsContextProvider } from './context/ForumContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,7 +14,9 @@ root.render(
     <AuthContextProvider>
       <VideoContextProvider>
        <NoteContextProvider>
+        <ForumsContextProvider>
         <App />
+        </ForumsContextProvider>
     </NoteContextProvider>
     </VideoContextProvider>
     </AuthContextProvider>

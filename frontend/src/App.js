@@ -9,6 +9,9 @@ import { IoDocumentsOutline } from "react-icons/io5";
 import { LiaVideoSolid } from "react-icons/lia";
 import { FaRegNoteSticky } from "react-icons/fa6";
 import { GrTest } from "react-icons/gr";
+import { MdOutlineForum } from "react-icons/md";
+import { CiChat1 } from "react-icons/ci";
+
 import { TiPencil } from "react-icons/ti";
 import Signup from './pages/Signup.js'
 import Login from './pages/login.js'
@@ -24,6 +27,9 @@ import AllVid from './pages/AllVid.js'
 import TakeTest from './pages/TakeTest.js'
 import ViewAllScores from './pages/ViewAllScores.js'
 import DisplayScores from './pages/DisplayScores.js'
+import AllForums from './pages/AllForums.js'
+import CreateForum from './pages/CreateForum.js'
+import DisplayForum from './pages/DisplayForum.js'
 
 // http://localhost3000/signup
 const App = () => {
@@ -60,6 +66,8 @@ const App = () => {
               <li onClick={()=>{handleClick("My Tests")}}>{check && <LinkElement active={activeLink} text={"My Tests"} icon={<GrTest />} path="/mytests"/>}</li>
               <li onClick={()=>{handleClick("Tests")}}>{!check && <LinkElement active={activeLink} text={"Tests"} icon={<GrTest />} path="/tests"/>}</li>
               <li onClick={()=>{handleClick("Create Test")}}>{check && <LinkElement active={activeLink} text={"Create Test"} icon={<TiPencil />} path="/createtest"/>}</li>
+              <li onClick={()=>{handleClick("Forums")}}>{<LinkElement active={activeLink} text={"Forums"} icon={<MdOutlineForum />} path="/forums"/>}</li>
+              <li onClick={()=>{handleClick("Create Forum")}}>{<LinkElement active={activeLink} text={"Create Forum"} icon={<CiChat1 />} path="/createforum"/>}</li>
               </ul>
             </div>
           </div>}
@@ -79,6 +87,9 @@ const App = () => {
               <Route path='/tests' element={!check?<Tests/>:null}/>
               <Route path='/taketest/:testID' element={!check?<TakeTest/>:null}/>
               <Route path='/addvideos' element={check?<Videos/>:<Navigate to='/learn'/>}/>
+              <Route path="/forums" element={<AllForums/>} />
+              <Route path="/createforum" element={<CreateForum/>}/>
+              <Route path="/forums/:forumID" element={<DisplayForum/>}/>
             </Routes>
           </div>
         </div>
