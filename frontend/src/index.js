@@ -6,7 +6,7 @@ import { NoteContextProvider } from './context/NoteContext';
 import VideoContextProvider from './context/VideoContext';
 import AuthContextProvider from './context/AuthContext';
 import { ForumsContextProvider } from './context/ForumContext';
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +16,7 @@ root.render(
        <NoteContextProvider>
         <ForumsContextProvider>
         <App />
+        <SpeedInsights/>
         </ForumsContextProvider>
     </NoteContextProvider>
     </VideoContextProvider>
