@@ -12,7 +12,7 @@ const AllForums = () => {
   useEffect(() => {
     const fetchForums = async () => {
       try {
-        const response = await fetch("https://edu-frontend-sage.vercel.app/forums", {
+        const response = await fetch("https://edu-backend-mu.vercel.app/forums", {
           headers: { Authorization: `Bearer ${user.token}` }
         });
         

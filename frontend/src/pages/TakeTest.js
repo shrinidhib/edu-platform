@@ -15,7 +15,7 @@ const TakeTest = () => {
   useEffect(() => {
     const fetchTest = async () => {
       try {
-        const response = await fetch(`https://edu-frontend-sage.vercel.app/test/${testID}`,{
+        const response = await fetch(`https://edu-backend-mu.vercel.app/test/${testID}`,{
           method: 'GET',
           headers:{
             "Authorization":`Bearer ${user.token}`
@@ -63,7 +63,7 @@ const TakeTest = () => {
           userID: user.user._id 
       }
       console.log(scoreData)
-      const response = await fetch('https://edu-frontend-sage.vercel.app/score', {
+      const response = await fetch('https://edu-backend-mu.vercel.app/score', {
         method: 'POST',
         body:JSON.stringify(scoreData),
         headers:{

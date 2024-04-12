@@ -13,7 +13,7 @@ const Tests = () => {
     const fetchTests = async () => {
         try {
             // Fetch all tests
-            const testsResponse = await fetch(`https://edu-frontend-sage.vercel.app/test/`,{
+            const testsResponse = await fetch(`https://edu-backend-mu.vercel.app/test/`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }
@@ -22,7 +22,7 @@ const Tests = () => {
             setTests(testsJson)
 
             // Fetch scores for the user
-            const scoresResponse = await fetch(`https://edu-frontend-sage.vercel.app/score/${user.user._id}`,{
+            const scoresResponse = await fetch(`https://edu-backend-mu.vercel.app/score/${user.user._id}`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }

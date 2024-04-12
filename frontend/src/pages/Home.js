@@ -10,7 +10,7 @@ const Home = () => {
     useEffect(()=>{
         const getRec=async ()=>{
             const id=user.user._id
-            const response=await fetch(`https://edu-frontend-sage.vercel.app/users/recents/${id}`,{
+            const response=await fetch(`https://edu-backend-mu.vercel.app/users/recents/${id}`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }

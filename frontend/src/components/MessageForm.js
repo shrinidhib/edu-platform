@@ -22,7 +22,7 @@ const MessageForm = ({ currentUser, currentID,increaseHeight }) => {
   
       const message = { content, createdBy: username, forumID };
   
-      const response = await fetch("https://edu-frontend-sage.vercel.app/messages", {
+      const response = await fetch("https://edu-backend-mu.vercel.app/messages", {
         method: "POST",
         body: JSON.stringify(message),
         headers: {

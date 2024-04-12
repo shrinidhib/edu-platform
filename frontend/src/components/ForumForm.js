@@ -27,7 +27,7 @@ const ForumForm = () => {
 
     const forum = {title, description, createdBy}
 
-    const response = await fetch('https://edu-frontend-sage.vercel.app/forums', {
+    const response = await fetch('https://edu-backend-mu.vercel.app/forums', {
       method: 'POST',
       body: JSON.stringify(forum),
       headers: {

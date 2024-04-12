@@ -14,7 +14,7 @@ export const useLogin=()=>{
             email:email,
             password:password
         }
-        const response=await fetch("https://edu-frontend-sage.vercel.app/users/login",{
+        const response=await fetch("https://edu-backend-mu.vercel.app/users/login",{
             method:"POST",
             body:JSON.stringify(data),
             headers:{
