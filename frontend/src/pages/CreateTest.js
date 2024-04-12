@@ -53,7 +53,7 @@ const CreateTest = () => {
         title: title,
         teacherId:user.user._id
       }
-      const response=await fetch("http://localhost:4005/test/",{
+      const response=await fetch("https://edu-frontend-sage.vercel.app/test/",{
         method: 'POST',
         body: JSON.stringify(t),
         headers:{

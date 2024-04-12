@@ -10,7 +10,7 @@ const MyNotes=()=>{
 
     useEffect(()=>{
         const fetchnotes=async()=>{
-            const response=await fetch(`http://localhost:4005/notes/${user.user._id}`,{
+            const response=await fetch(`https://edu-frontend-sage.vercel.app/notes/${user.user._id}`,{
                 method: "GET",
                 headers:{
                     "Authorization":`Bearer ${user.token}`

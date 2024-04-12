@@ -12,7 +12,7 @@ const ViewAllScores = () => {
   useEffect(() => {
     const fetchTestDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:4005/test/title/${testID}`,{
+        const response = await fetch(`https://edu-frontend-sage.vercel.app/test/title/${testID}`,{
             headers:{
                 "Authorization":`Bearer ${user.token}`
             }
@@ -29,7 +29,7 @@ const ViewAllScores = () => {
   useEffect(() => {
     const fetchTestScores = async () => {
       try {
-        const response = await fetch(`http://localhost:4005/score/test/${testID}`,{
+        const response = await fetch(`https://edu-frontend-sage.vercel.app/score/test/${testID}`,{
             headers:{
                 "Authorization":`Bearer ${user.token}`
             }

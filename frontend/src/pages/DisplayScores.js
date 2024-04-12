@@ -12,7 +12,7 @@ const DisplayScores = () => {
   useEffect(() => {
     const fetchLatestScores = async () => {
       try {
-        const response = await fetch(`http://localhost:4005/score/${user.user._id}`,{
+        const response = await fetch(`https://edu-frontend-sage.vercel.app/score/${user.user._id}`,{
             headers:{
                 "Authorization":`Bearer ${user.token}`
             }
@@ -45,7 +45,7 @@ const DisplayScores = () => {
       await Promise.all(
       latestScores.map(async (score) => {
           try {
-            const response = await fetch(`http://localhost:4005/test/title/${score.testID}`,{
+            const response = await fetch(`https://edu-frontend-sage.vercel.app/test/title/${score.testID}`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }

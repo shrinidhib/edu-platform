@@ -20,7 +20,7 @@ const AddVideo = () => {
             setError(null)
             const url=inputUrl
             const video={url,title,teacher_id:user.user._id}
-            const response= await fetch('http://localhost:4005/videos/addvideos',{
+            const response= await fetch('https://edu-frontend-sage.vercel.app/videos/addvideos',{
                 method: 'POST',
                 body: JSON.stringify(video),
                 headers:{

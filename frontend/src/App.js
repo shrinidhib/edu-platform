@@ -31,7 +31,6 @@ import AllForums from './pages/AllForums.js'
 import CreateForum from './pages/CreateForum.js'
 import DisplayForum from './pages/DisplayForum.js'
 
-// http://localhost3000/signup
 const App = () => {
   const [activeLink,setActiveLink]=useState("")
   const {user}=useAuthContext()

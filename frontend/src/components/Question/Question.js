@@ -32,7 +32,7 @@ const Question = ({q, index,testId}) => {
             },
             index: index
         }
-        const response=await fetch(`http://localhost:4005/test/${testId}`,{
+        const response=await fetch(`https://edu-frontend-sage.vercel.app/test/${testId}`,{
             method: 'PATCH',
             body: JSON.stringify(body),
             headers: {
