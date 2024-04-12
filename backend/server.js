@@ -19,7 +19,7 @@ const server = http.createServer(app);
 const io = socketIo(server);
 
 app.use(cors({
-    origin: ['https://edu-frontend-sage.vercel.app/']
+    origin: ['https://edu-frontend-sage.vercel.app']
 }))
 
 app.use(express.json())
