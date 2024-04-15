@@ -16,6 +16,7 @@ export default function Navbar() {
                     {/* <Link className='nav-link' to ="/taketest">Take Test</Link> */}
                     <Link className='nav-link' to ="/displaytests">Display Tests</Link>
                     <Link className='nav-link' to ="/displayscores">Display Scores</Link>
+                    <Link className='nav-link' to ="/userdetails/:userID">UserDetails</Link>
                 </div>
             </nav>
         </div>

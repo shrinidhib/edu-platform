@@ -11,7 +11,7 @@ const DisplayScores = ({ userId }) => {
   useEffect(() => {
     const fetchLatestScores = async () => {
       try {
-        const response = await axios.get("http://localhost:4005/score/1234567890");
+        const response = await axios.get("http://localhost:4005/score/661a9cbf15928d25c9c032e0");
         const sortedScores = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         const uniqueTestIDs = [...new Set(sortedScores.map(score => score.testID))];
         const latestScoresData = uniqueTestIDs.map(testID => {

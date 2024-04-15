@@ -9,6 +9,7 @@ import TakeTest from './pages/TakeTest';
 import DisplayScores from './pages/DisplayScores';
 import  {DisplayTests}  from './pages/DisplayTests';
 import ViewAllScores from './pages/ViewAllScores';
+import { UserDetails } from './pages/UserDetails';
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
           <Route path='/tests' element={<Tests/>}/>
           <Route path='/displaytests' element={<DisplayTests/>}/>
           <Route path='/viewallscores/:testID' element={<ViewAllScores/>}/>
-
+          <Route path='/userdetails/:userID' element={<UserDetails/>}/>
           <Route path='/taketest/:testID' element={<TakeTest/>}/>
           <Route path='/displayscores' element={<DisplayScores/>}/>
         </Routes>

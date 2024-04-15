@@ -3,41 +3,25 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import './css/ViewAllScores.css'; // Import your CSS file
 
-const ViewAllScores = () => {
-  const [testScores, setTestScores] = useState([]);
-  const [testTitle, setTestTitle] = useState('');
-  const { testID } = useParams();
+const ViewAllScores = ({ match }) => {
+  const [scores, setScores] = useState([]);
 
   useEffect(() => {
-    const fetchTestDetails = async () => {
+    const fetchScores = async () => {
       try {
-        const response = await axios.get(`http://localhost:4005/test/title/${testID}`);
-        setTestTitle(response.data.title);
+        const response = await axios.get(`http://localhost:4005/score/${match.params.testId}`);
+        setScores(response.data);
       } catch (error) {
-        console.error('Error fetching test details:', error);
+        console.error('Error fetching scores:', error);
       }
     };
 
-    fetchTestDetails();
-  }, [testID]);
-
-  useEffect(() => {
-    const fetchTestScores = async () => {
-      try {
-        const response = await axios.get(`http://localhost:4005/score/test/${testID}`);
-        const sortedScores = response.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        setTestScores(sortedScores);
-      } catch (error) {
-        console.error('Error fetching test scores:', error);
-      }
-    };
-
-    fetchTestScores();
-  }, [testID]);
+    fetchScores();
+  }, [match.params.testId]);
 
   return (
     <div className="view-all-scores-container">
-      <h2>All Scores for Test: {testTitle}</h2>
+      {/* <h2>All Scores for Test: {testTitle}</h2>
       <table className="scores-table">
         <thead>
           <tr>
@@ -55,7 +39,7 @@ const ViewAllScores = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
     </div>
   );
 };

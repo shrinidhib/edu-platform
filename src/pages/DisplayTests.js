@@ -15,7 +15,7 @@ export const DisplayTests = () => {
             setTests(testsJson)
 
             // Fetch scores for the user
-            const scoresResponse = await fetch("http://localhost:4005/score/1234567890")
+            const scoresResponse = await fetch("http://localhost:4005/score/661a9cbf15928d25c9c032e0")
             const scoresJson = await scoresResponse.json()
             setUserScores(scoresJson)
         } catch (error) {
