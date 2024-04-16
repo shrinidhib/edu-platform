@@ -5,7 +5,6 @@ import { useAuthContext } from "../hooks/useAuthContext";
 
 const CreateTest = () => {
   const [questions, setQuestions] = useState([]);
-  const [questionIDs, setQuestionIDs]=useState([])
   const [title,setTitle]=useState('')
   const [number, setNumber] = useState(1);
   const [showPreview, setShowPreview]=useState(false)
@@ -53,7 +52,7 @@ const CreateTest = () => {
         title: title,
         teacherId:user.user._id
       }
-      const response=await fetch("https://edu-backend-mu.vercel.app/test/",{
+      const response=await fetch("http://localhost:4005/test/",{
         method: 'POST',
         body: JSON.stringify(t),
         headers:{

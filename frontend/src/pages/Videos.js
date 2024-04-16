@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 import  AddVideo  from '../components/AddVideo/AddVideo.js'
 import ThumbnailTeacher from '../components/Thumbnail/ThumbnailTeacher.js'
 import { useVideoContext } from '../hooks/useVideoContext.js'
@@ -11,7 +11,7 @@ export const Videos = () => {
     
     useEffect(()=>{
         const fetchVideos=async()=>{
-            const response= await fetch(`https://edu-backend-mu.vercel.app/videos/filter/${user.user._id}`,{
+            const response= await fetch(`http://localhost:4005/videos/filter/${user.user._id}`,{
                 method: 'GET',
                 headers:{
                     "Authorization":`Bearer ${user.token}`

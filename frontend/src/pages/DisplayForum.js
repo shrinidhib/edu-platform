@@ -1,15 +1,11 @@
-import { useContext, useEffect, useState,useRef } from "react";
+import {  useEffect, useState,useRef } from "react";
 import { useParams } from "react-router-dom";
-import { useForumsContext } from "../hooks/useForumsContext";
 import { useAuthContext } from "../hooks/useAuthContext";
-
-import ForumDetails from "../components/ForumDetails";
 import MessageList from "../components/MessageList";
 import MessageForm from "../components/MessageForm";
 
 
 const DisplayForum = () => {
-  const { forum, dispatch } = useForumsContext();
   const { user } = useAuthContext();
   const { forumID } = useParams();
   const [forumData, setForumData] = useState(null);
@@ -26,7 +22,7 @@ const DisplayForum = () => {
     
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://edu-backend-mu.vercel.app/forums/${forumID}`, {
+        const response = await fetch(`http://localhost:4005/forums/${forumID}`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         if (!response.ok) {

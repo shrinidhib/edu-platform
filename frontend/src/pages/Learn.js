@@ -1,25 +1,32 @@
-import React,{useEffect} from 'react'
-import Carousel from '../components/Carousel.js'
+import React,{useEffect,useState} from 'react'
 import { useAuthContext } from '../hooks/useAuthContext.js'
 import Thumbnail from '../components/Thumbnail/Thumbnail.js'
 import { useVideoContext } from '../hooks/useVideoContext.js'
 import { Link } from 'react-router-dom'
 import './css/Learn.css'
 import './css/Home.css'
+import axios from 'axios'
 
 const Learn = () => {
     const {user}=useAuthContext()
     const {videos,dispatch}=useVideoContext()
-
+    const [allImage, setAllImage] = useState(null);
+    const getPdf = async () => {
+        const result = await axios.get("http://localhost:4005/docs/get-files");
+        console.log(result.data.docs);
+        setAllImage(result.data.docs);
+    };
+    const showPdf = (pdf) => {
+        window.open(`http://localhost:4005/files/${pdf}`, "_blank", "noreferrer");
+        // setPdfFile(`http://localhost:5000/files/${pdf}`)
+    };
     useEffect(()=>{
         const fetchVideos=async()=>{
-            const response= await fetch('https://edu-backend-mu.vercel.app/videos/all',{
+            const response= await fetch('http://localhost:4005/videos/all',{
                 method: 'GET',
-                headers:{
-                    "Authorization":`Bearer ${user.token}`
-                }
             })
             const json=await response.json()
+            // console.log(json)
             if (response.ok){
                 dispatch({type:"SET_VIDEOS",payload:json})
             }
@@ -28,7 +35,8 @@ const Learn = () => {
             }
         }
         if(user){
-            fetchVideos() 
+            fetchVideos()
+            getPdf()
         }
     },[user,dispatch])
 
@@ -44,20 +52,39 @@ const Learn = () => {
 
   return (// copied from home
     <div className='learn'> 
-        <div className='cont'>
-            <h3>Docs</h3>
-        </div>
-        
+        <Link to='/alldocs'>
             <div className='recent'>
-                <Link to='/allvideos'><h3>Videos</h3></Link>
+                <h3>Docs</h3>
                 <div className='recent-box'>
-                    {videos && videos.length!==0 && videos.map((vid)=>{
-                        const videoId=fetchVideoId(vid)
-                        return <Thumbnail key={vid.url} title={vid.title} videoId={videoId}/>
+                {allImage == null
+                    ? ""
+                    : allImage.map((data) => {
+                        return (
+                        <div className="doc-cont">
+                            <h6>Title: {data.title}</h6>
+                            <button
+                            className="doc-btn"
+                            onClick={() => showPdf(data.file)}
+                            >
+                            View Pdf
+                            </button>
+                        </div>
+                        );
                     })}
                 </div>
             </div>
-   
+        </Link>
+        <Link to='/allvideos'>
+            <div className='recent'>
+                <h3>Videos</h3>
+                <div className='recent-box'>
+                    {videos && videos.length!==0 && videos.map((vid)=>{
+                        const videoId=fetchVideoId(vid)
+                        return <Thumbnail key={videoId} title={vid.title} videoId={videoId}/>
+                    })}
+                </div>
+            </div>
+        </Link>
     </div>
   )
 }

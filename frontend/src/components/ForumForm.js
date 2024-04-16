@@ -1,12 +1,10 @@
 import { useState } from "react"
 import { useForumsContext } from '../hooks/useForumsContext'
 import { useAuthContext } from '../hooks/useAuthContext'
-import { useNavigate } from "react-router-dom"
 
 const ForumForm = () => {
   const { dispatch } = useForumsContext()
   const { user } = useAuthContext()
-  const navigate=useNavigate();
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -26,8 +24,9 @@ const ForumForm = () => {
 
 
     const forum = {title, description, createdBy}
+    // http://localhost:4005/forums
 
-    const response = await fetch('https://edu-backend-mu.vercel.app/forums', {
+    const response = await fetch('http://localhost:4005/forums', {
       method: 'POST',
       body: JSON.stringify(forum),
       headers: {

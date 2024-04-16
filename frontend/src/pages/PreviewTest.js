@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import './css/PreviewTest.css'
 import Question from '../components/Question/Question'
 export const PreviewTest =({t, closeHandler}) => {

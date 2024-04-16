@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useForumsContext } from "../hooks/useForumsContext";
-import { useAuthContext } from "../hooks/useAuthContext";
 import io from 'socket.io-client';
 
 const MessageForm = ({ currentUser, currentID,increaseHeight }) => {
@@ -22,16 +21,17 @@ const MessageForm = ({ currentUser, currentID,increaseHeight }) => {
   
       const message = { content, createdBy: username, forumID };
   
-      const response = await fetch("https://edu-backend-mu.vercel.app/messages", {
+      const response = await fetch("http://localhost:4005/messages", {
         method: "POST",
         body: JSON.stringify(message),
         headers: {
           "Content-Type": "application/json",
-          Authorization:`Bearer${currentUser.token}`, // Assuming user.token exists for authentication
+          Authorization: `Bearer ${currentUser.token}`, // Assuming user.token exists for authentication
         },
       });
   
       const json = await response.json();
+      console.log(json)
   
       if (!response.ok) {
         setError(json.error);
@@ -46,7 +46,7 @@ const MessageForm = ({ currentUser, currentID,increaseHeight }) => {
     
   };
     useEffect(() => {
-        const socket = io('http://127.0.0.1:4005');
+        const socket = io('http://localhost:4005');
 
         socket.emit('message', 'Hello');
 
@@ -68,7 +68,7 @@ const MessageForm = ({ currentUser, currentID,increaseHeight }) => {
               value={content}
               className={emptyFields.includes("content") ? "error" : ""}
           />
-          <button>Send Message</button>
+          <button type="submit">Send Message</button>
           {error && <div className="error">{error}</div>}
       </form>
   );

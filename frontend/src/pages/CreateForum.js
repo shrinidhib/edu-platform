@@ -1,7 +1,4 @@
-import { useEffect} from "react";
-import { useAuthContext } from "../hooks/useAuthContext";
-import {useForumsContext} from "../hooks/useForumsContext";
- 
+
 import ForumForm from "../components/ForumForm"
 
 const CreateForum= ()=>{

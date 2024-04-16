@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom'
 import { CgProfile } from "react-icons/cg";
-import { CiSearch } from "react-icons/ci";
 import Profile from '../Profile/Profile.js';
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 import { useLogout } from '../../hooks/useLogout.js';

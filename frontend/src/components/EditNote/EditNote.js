@@ -15,7 +15,7 @@ const EditNote=({note, editHandler, modalHandler})=>{
         e.preventDefault()
         // const note={title,content}
         const edited_note={title,content,userID: user.user._id}
-        const response=await fetch(`https://edu-backend-mu.vercel.app/notes/${note._id}`,{
+        const response=await fetch(`http://localhost:4005/notes/${note._id}`,{
             method: 'PATCH',
             body: JSON.stringify(edited_note),
             headers:{

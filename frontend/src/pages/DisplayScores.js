@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for navigation
 import { formatDistanceToNow } from 'date-fns'; // Import formatDistanceToNow from date-fns
 import './css/DisplayScores.css';
 import { useAuthContext } from '../hooks/useAuthContext';
@@ -12,7 +11,7 @@ const DisplayScores = () => {
   useEffect(() => {
     const fetchLatestScores = async () => {
       try {
-        const response = await fetch(`https://edu-backend-mu.vercel.app/score/${user.user._id}`,{
+        const response = await fetch(`http://localhost:4005/score/${user.user._id}`,{
             headers:{
                 "Authorization":`Bearer ${user.token}`
             }
@@ -45,7 +44,7 @@ const DisplayScores = () => {
       await Promise.all(
       latestScores.map(async (score) => {
           try {
-            const response = await fetch(`https://edu-backend-mu.vercel.app/test/title/${score.testID}`,{
+            const response = await fetch(`http://localhost:4005/test/title/${score.testID}`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }

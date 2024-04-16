@@ -10,7 +10,7 @@ export const VideoView = () => {
     const {videoId}=useParams()
     const {user}=useAuthContext()
     console.log(user.user.designation)
-    const check=user.user.designation=='Teacher'
+    const check=user.user.designation==='Teacher'
     console.log(check)
     const toggleModal=()=>{
         setShowButton((prev)=>!prev)

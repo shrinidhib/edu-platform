@@ -1,13 +1,70 @@
 import { useState } from 'react'
 import { useAuthContext } from '../../hooks/useAuthContext.js'
 import { useVideoContext } from '../../hooks/useVideoContext.js'
+import {useEffect} from 'react'
+import { FaRegTrashCan } from "react-icons/fa6";
+
+import axios from 'axios'
 
 const AddVideo = () => {
     const {videos,dispatch}=useVideoContext()
     const {user}=useAuthContext()
     const [inputUrl,setInputUrl]=useState('')
     const [title,setTitle]=useState('')
+    const [title2,setTitle2]=useState('')
+    const [file,setFile]=useState('')
     const [error,setError]=useState(null)
+    const [allImage, setAllImage] = useState([]);
+    
+
+    const deleteDoc=async(id)=>{
+        const response = await axios.delete(
+            `http://localhost:4005/docs/deletedoc/${id}`
+        );
+        if(response.data.status==='ok'){
+            getPdf()
+        }
+    }
+    const getPdf = async () => {
+        const result = await axios.get(`http://localhost:4005/docs/filter/${user.user._id}`);
+        console.log(result.data.docs);
+        setAllImage(result.data.docs);
+    };
+    const showPdf = (pdf) => {
+        window.open(`http://localhost:4005/files/${pdf}`, "_blank", "noreferrer");
+        // setPdfFile(`http://localhost:5000/files/${pdf}`)
+    };
+    useEffect(() => {
+        if(user){
+            getPdf();
+        }
+      }, [user]);
+    const addDocHandler=async(e)=>{
+        e.preventDefault()
+        const formdata=new FormData()
+        formdata.append("title",title2)
+        formdata.append("file",file)
+        formdata.append("teacher_id",user.user._id)
+        console.log(formdata)
+
+        const response = await axios.post(
+            "http://localhost:4005/docs/upload-files",
+            formdata,
+            {
+              headers: { "Content-Type": "multipart/form-data" },
+            }
+        );
+        if (response.data.status === "ok") {
+            alert("Uploaded Successfully!!!");
+            getPdf();
+            setFile('')
+            setTitle2('')
+          }
+          else{
+            setError(response.data.status)
+          }
+        console.log("res:",response)
+    }
     const addVideoHandler=async(e)=>{
         e.preventDefault()
         const pattern = /^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:\S+)?$/;
@@ -20,7 +77,7 @@ const AddVideo = () => {
             setError(null)
             const url=inputUrl
             const video={url,title,teacher_id:user.user._id}
-            const response= await fetch('https://edu-backend-mu.vercel.app/videos/addvideos',{
+            const response= await fetch('http://localhost:4005/videos/addvideos',{
                 method: 'POST',
                 body: JSON.stringify(video),
                 headers:{
@@ -42,6 +99,7 @@ const AddVideo = () => {
         }
     }
   return (
+    <>
     <form onSubmit={addVideoHandler}>
         <input 
         type='text' 
@@ -53,6 +111,37 @@ const AddVideo = () => {
         <button >Submit</button>
         {error && <div>An error occurred while uploading. Try again</div>}
     </form>
+    { allImage.length!==0 && <div>
+        <br/>
+          <h3>Your Docs</h3>
+          <div className="your_docs doc-list-outer">
+          {allImage === null
+            ? ""
+            : allImage.map((data) => {
+                return (
+                  <div className="doc-cont">
+                    <h6>Title: {data.title}</h6>
+                    <div className='doc-btn-cont'>
+                    <button
+                      className="doc-btn"
+                      onClick={() => showPdf(data.file)}
+                    >
+                      View Pdf
+                    </button>
+                    <FaRegTrashCan onClick={()=>{deleteDoc(data._id)}}/>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+        </div>}
+    <form onSubmit={addDocHandler} encType='multipart/form-data'>
+        <input type="file" filename="file" accept='application/pdf' onChange={(e)=>{setFile(e.target.files[0])}} required/>
+        <input type='text' placeholder='Add Title' value={title2} onChange={(e)=>{setTitle2(e.target.value)}} required/>
+        <button >Submit</button>
+        {error && <div>An error occurred while uploading. Try again</div>}
+    </form>
+    </>
   )
 }
 export default AddVideo

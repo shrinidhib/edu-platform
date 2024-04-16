@@ -1,12 +1,10 @@
-import {useForumsContext} from "../hooks/useForumsContext"
-import { useAuthContext } from "../hooks/useAuthContext"
+
 import { useNavigate } from "react-router-dom"
 
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 
 const ForumDetails = ({forum})=>{
-    const {dispatch} = useForumsContext()
-    const {user} = useAuthContext()
+
     const navigate=useNavigate();
 
     const handleForumClick=()=>{

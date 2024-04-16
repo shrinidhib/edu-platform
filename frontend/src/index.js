@@ -6,6 +6,7 @@ import { NoteContextProvider } from './context/NoteContext';
 import VideoContextProvider from './context/VideoContext';
 import AuthContextProvider from './context/AuthContext';
 import { ForumsContextProvider } from './context/ForumContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
