@@ -10,17 +10,20 @@ const testRoutes=require('./routes/test')
 const userRoutes=require("./routes/userRoutes.js")
 const scoreRoutes=require('./routes/score.js')
 const forumRoutes = require('./routes/forum')
+const docRoutes = require('./routes/docRoutes.js')
+
 const http = require('http');
 const socketIo = require('socket.io');
 const Message = require('./models/messageModel')
 
 const app=express()
+app.use('/files',express.static("files"))
 const server = http.createServer(app);
 const io = socketIo(server);
-
-app.use(cors({
-    origin: ['https://edu-frontend-sage.vercel.app']
-}))
+// {
+//     origin: ['https://edu-frontend-sage.vercel.app']
+// }
+app.use(cors())
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({extended:true}))
@@ -37,6 +40,7 @@ app.use("/users",userRoutes)
 app.use("/videos",videoRoutes)
 app.use("/score", scoreRoutes)
 app.use('/forums',forumRoutes)
+app.use('/docs',docRoutes)
 
 io.on('connection',(socket)=>{
     console.log('Client connected');

@@ -15,6 +15,21 @@ router.get("/all",async (req,res)=>{
         res.status(500).json({error:error.message})
     }
 })
+router.get("/search/:title",async (req,res)=>{
+    let title=req.params.title
+    title=title.toLowerCase()
+    try{
+        const videos=await Video.find({}).sort({createdAt:-1}) //find all
+        const videosFiltered=videos.filter((vid)=>{return vid.title.includes(title)})
+        console.log(videosFiltered)
+        res.status(200).json(videosFiltered)
+    }
+    catch(error){
+        res.status(500).json({error:error.message})
+    }
+})
+
+
 router.get("/filter/:id",async (req,res)=>{
     try{
         const id=req.params.id
