@@ -3,7 +3,11 @@
 
 
 :root {
-  --primary: #1aac83;
+  --primary : #6fb3b8;
+  --primary-light : #badfe7;
+  --primary-dark: #388087;
+  --success: #c2edce;
+  --light-bg: #f6f6f2;
   --error: #e7195a;
 }
 

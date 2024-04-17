@@ -7,15 +7,18 @@ const Signup = () => {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const [designation,setDesignation]=useState("")
+    const [username, setUsername]=useState("")
     const {error,loading,signup}=useSignup()//destructure
     const handleSubmit=async(e)=>{
         e.preventDefault()
-        await signup(email,password,designation)
+        await signup(username,email,password,designation)
     }
 
   return (
     <div>
         <form className='signup' onSubmit={handleSubmit}>
+            <label>Username</label>
+            <input type="text" onChange={(e)=>{setUsername(e.target.value)}}/>
             <label>Email</label>
             <input type="text" onChange={(e)=>{setEmail(e.target.value)}}/>
             <label>Designation</label>

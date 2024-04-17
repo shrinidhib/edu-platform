@@ -66,7 +66,7 @@ export const UserDetails = () => {
                         <div style={{ backgroundColor: '#007bff', color: 'white', padding: '20px', borderRadius: '10px', marginBottom: '20px' }}>
                             <h2>User Details</h2>
                             {/* Display user details inside the blue box */}
-                            <p>Name: Vardhan Dongre</p>
+                            <p>Name: {user.user.username}</p>
                             <p>Email: {user.user.email}</p>
                             <p>Designation: {user.user.designation}</p>
                             {/* Add more user details here */}

@@ -19,7 +19,7 @@ import AllForums from './pages/AllForums.js'
 import CreateForum from './pages/CreateForum.js'
 import DisplayForum from './pages/DisplayForum.js'
 import AllDoc from './pages/AllDoc.js'
-import Sidebar from './components/Sidebar.js'
+import Sidebar from './components/SideBar.js'
 import { UserDetails } from './pages/UserDetails.js'
 
 const App = () => {

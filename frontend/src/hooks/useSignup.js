@@ -6,10 +6,11 @@ export const useSignup=()=>{
     const [error,setError]=useState(null)
     const [loading,setLoading]=useState(null)
 
-    const signup=async(email,password,designation)=>{
+    const signup=async(username,email,password,designation)=>{
         setError(null)
         setLoading(true)
         const data={
+            username: username,
             email:email,
             password:password,
             designation:designation
