@@ -21,6 +21,7 @@ import DisplayForum from './pages/DisplayForum.js'
 import AllDoc from './pages/AllDoc.js'
 
 import { UserDetails } from './pages/UserDetails.js'
+import SideBar from './components/SideBar.js'
 
 const App = () => {
   const {user}=useAuthContext()
@@ -37,7 +38,7 @@ const App = () => {
       <BrowserRouter>
       <Navbar/>
         <div className='layout'>
-           
+           {user && <SideBar/>}
             
           <div className='pages'>
             <Routes>
