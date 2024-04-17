@@ -19,7 +19,7 @@ import AllForums from './pages/AllForums.js'
 import CreateForum from './pages/CreateForum.js'
 import DisplayForum from './pages/DisplayForum.js'
 import AllDoc from './pages/AllDoc.js'
-import Sidebar from './components/SideBar.js'
+import SideBar from './components/SideBar.js'
 import { UserDetails } from './pages/UserDetails.js'
 
 const App = () => {
@@ -37,7 +37,7 @@ const App = () => {
       <BrowserRouter>
       <Navbar/>
         <div className='layout'>
-            {user && <Sidebar/>}
+            {user && <SideBar/>}
           <div className='pages'>
             <Routes>
               <Route path='/' element={user?<Home/>:<Navigate to="/login"/>}/>

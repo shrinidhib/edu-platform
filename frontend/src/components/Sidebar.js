@@ -12,7 +12,7 @@ import { IoStatsChartOutline } from "react-icons/io5";
 
 import { useAuthContext } from '../hooks/useAuthContext.js';
 import LinkElement from './LinkElement.js';
-const Sidebar = () => {
+const SideBar = () => {
     const [activeLink,setActiveLink]=useState("")
     const {user}=useAuthContext()
     let designation
@@ -52,5 +52,5 @@ const Sidebar = () => {
   )
 }
 
-export default Sidebar
+export default SideBar
 
