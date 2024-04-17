@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useForumsContext } from "../hooks/useForumsContext";
+import { useAuthContext } from "../hooks/useAuthContext";
 import io from 'socket.io-client';
 
-const MessageForm = ({ currentUser, currentID,increaseHeight }) => {
+const MessageForm = ({ currentUser, currentID, onMessageSent }) => { // Added onMessageSent prop
     const { dispatch } = useForumsContext();
     const [content, setContent] = useState("");
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
+    const { token } = useAuthContext();
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = useCallback(async (e) => {
       e.preventDefault();
   
       const username = currentUser.email; // Use the email from currentUser prop
@@ -26,12 +28,11 @@ const MessageForm = ({ currentUser, currentID,increaseHeight }) => {
         body: JSON.stringify(message),
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${currentUser.token}`, // Assuming user.token exists for authentication
+          Authorization: `Bearer ${token}`, // Assuming user.token exists for authentication
         },
       });
   
       const json = await response.json();
-      console.log(json)
   
       if (!response.ok) {
         setError(json.error);
@@ -41,12 +42,12 @@ const MessageForm = ({ currentUser, currentID,increaseHeight }) => {
         setError(null);
         setEmptyFields([]);
         dispatch({ type: "CREATE_MESSAGE", payload: json });
+        onMessageSent(json); // Invoke the callback function with the new message
       }
-      
-    
-  };
+    }, [content, currentUser, currentID, dispatch, token, onMessageSent]);
+
     useEffect(() => {
-        const socket = io('http://localhost:4005');
+        const socket = io('http://127.0.0.1:4005');
 
         socket.emit('message', 'Hello');
 
@@ -68,7 +69,7 @@ const MessageForm = ({ currentUser, currentID,increaseHeight }) => {
               value={content}
               className={emptyFields.includes("content") ? "error" : ""}
           />
-          <button type="submit">Send Message</button>
+          <button>Send Message</button>
           {error && <div className="error">{error}</div>}
       </form>
   );
