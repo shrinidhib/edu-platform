@@ -27,7 +27,7 @@
     margin: 25px;
 }
 
-.modal{
+.modal-container{
     position: fixed;
     top: 0;
     left: 0;

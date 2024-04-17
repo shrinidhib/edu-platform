@@ -61,7 +61,7 @@ const Note=({note})=>{
             {showEdit && <EditNote note={note} editHandler={editHandler} modalHandler={modalHandler}/>}
             
             {showNote && 
-            <div  onClick={modalHandler} className='modal'>
+            <div  onClick={modalHandler} className='modal-container'>
                 
                 <div onClick={(e)=>{
                     e.stopPropagation()}}
