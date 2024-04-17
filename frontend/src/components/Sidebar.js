@@ -9,7 +9,6 @@ import { MdOutlineForum } from "react-icons/md";
 import { CiChat1 } from "react-icons/ci";
 import { TiPencil } from "react-icons/ti";
 import { IoStatsChartOutline } from "react-icons/io5";
-
 import { useAuthContext } from '../hooks/useAuthContext.js';
 import LinkElement from './LinkElement.js';
 const SideBar = () => {
