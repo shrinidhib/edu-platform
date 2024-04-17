@@ -22,7 +22,7 @@ const server = http.createServer(app);
 const io = socketIo(server, {
     cors: {
         origin: "https://edu-frontend-sage.vercel.app",
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST","PUT","PATCH"]
     }
 });
 
