@@ -26,7 +26,7 @@ const MyNotes=()=>{
         }
 
         fetchnotes()
-    },[dispatch])
+    },[dispatch,user])
     return (
          <div className="mynotes">
             {notes && notes.map((note)=>{

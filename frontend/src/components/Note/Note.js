@@ -14,6 +14,7 @@ const Note=({note})=>{
     const {dispatch} = useNoteContext()
     const {user}=useAuthContext()
     const modalHandler=()=>{
+        console.log('modal handler')
         setShowNote(!showNote)
     }
 
