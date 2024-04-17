@@ -19,19 +19,19 @@ const AddVideo = () => {
 
     const deleteDoc=async(id)=>{
         const response = await axios.delete(
-            `http://localhost:4005/docs/deletedoc/${id}`
+            `https://edu-backend-mu.vercel.app/docs/deletedoc/${id}`
         );
         if(response.data.status==='ok'){
             getPdf()
         }
     }
     const getPdf = async () => {
-        const result = await axios.get(`http://localhost:4005/docs/filter/${user.user._id}`);
+        const result = await axios.get(`https://edu-backend-mu.vercel.app/docs/filter/${user.user._id}`);
         console.log(result.data.docs);
         setAllImage(result.data.docs);
     };
     const showPdf = (pdf) => {
-        window.open(`http://localhost:4005/files/${pdf}`, "_blank", "noreferrer");
+        window.open(`https://edu-backend-mu.vercel.app/files/${pdf}`, "_blank", "noreferrer");
         // setPdfFile(`http://localhost:5000/files/${pdf}`)
     };
     useEffect(() => {
@@ -48,7 +48,7 @@ const AddVideo = () => {
         console.log(formdata)
 
         const response = await axios.post(
-            "http://localhost:4005/docs/upload-files",
+            "https://edu-backend-mu.vercel.app/docs/upload-files",
             formdata,
             {
               headers: { "Content-Type": "multipart/form-data" },
@@ -77,7 +77,7 @@ const AddVideo = () => {
             setError(null)
             const url=inputUrl
             const video={url,title,teacher_id:user.user._id}
-            const response= await fetch('http://localhost:4005/videos/addvideos',{
+            const response= await fetch('https://edu-backend-mu.vercel.app/videos/addvideos',{
                 method: 'POST',
                 body: JSON.stringify(video),
                 headers:{

@@ -14,7 +14,7 @@ const DisplayForum = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:4005/forums/${forumID}`, {
+        const response = await fetch(`https://edu-backend-mu.vercel.app/forums/${forumID}`, {
           headers: { Authorization: `Bearer ${user.token}` },
         });
         if (!response.ok) {

@@ -12,17 +12,17 @@ const Learn = () => {
     const {videos,dispatch}=useVideoContext()
     const [allImage, setAllImage] = useState(null);
     const getPdf = async () => {
-        const result = await axios.get("http://localhost:4005/docs/get-files");
+        const result = await axios.get("https://edu-backend-mu.vercel.app/docs/get-files");
         console.log(result.data.docs);
         setAllImage(result.data.docs);
     };
     const showPdf = (pdf) => {
-        window.open(`http://localhost:4005/files/${pdf}`, "_blank", "noreferrer");
+        window.open(`https://edu-backend-mu.vercel.app/files/${pdf}`, "_blank", "noreferrer");
         // setPdfFile(`http://localhost:5000/files/${pdf}`)
     };
     useEffect(()=>{
         const fetchVideos=async()=>{
-            const response= await fetch('http://localhost:4005/videos/all',{
+            const response= await fetch('https://edu-backend-mu.vercel.app/videos/all',{
                 method: 'GET',
             })
             const json=await response.json()

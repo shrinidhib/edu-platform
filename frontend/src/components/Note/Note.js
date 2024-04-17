@@ -26,7 +26,7 @@ const Note=({note})=>{
         const isConfirmed = window.confirm("Are you sure you want to delete this note?")
 
         if (isConfirmed){
-            const response=await fetch(`http://localhost:4005/notes/${note._id}`,{
+            const response=await fetch(`https://edu-backend-mu.vercel.app/notes/${note._id}`,{
             method: 'DELETE',
             body: JSON.stringify(note),
             headers:{
