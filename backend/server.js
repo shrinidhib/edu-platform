@@ -19,7 +19,14 @@ const Message = require('./models/messageModel')
 const app=express()
 app.use('/files',express.static("files"))
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = socketIo(server, {
+    cors: {
+        origin: "https://yourproductiondomain.com",
+        methods: ["GET", "POST"]
+    }
+});
+
+
 
 app.use(cors({
     origin: ['https://edu-frontend-sage.vercel.app']
