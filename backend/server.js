@@ -76,8 +76,8 @@ io.on('sendMessage', async (content, createdBy, forumID) => {
 });
 mongoose.connect(process.env.MONGO_URI)
 .then(()=>{
-    app.listen(process.env.PORT,()=>{
-        console.log('listening')
+    server.listen(process.env.PORT, ()=>{
+        console.log('Server Listening on 4005')
     })
 })
     .catch((e)=>{

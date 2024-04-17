@@ -3,10 +3,10 @@ const bcrypt =require("bcrypt")
 const validator =require("validator");
 
 const userSchema=mongoose.Schema({
-    // username:{
-    //     type:String,
-    //     required:true
-    // },
+    username:{
+        type:String,
+        required:true
+    },
     email:{
         type:String,
         required:true
@@ -28,8 +28,8 @@ const userSchema=mongoose.Schema({
     timestamp:true
 })
 
-userSchema.statics.signup=async function(email,password,designation){
-    if(!email || !password || !designation){
+userSchema.statics.signup=async function(username,email,password,designation){
+    if(!email || !password || !designation || !username){
         throw Error("All fields are required")
     }
     const exists=await this.findOne({email})
@@ -45,6 +45,7 @@ userSchema.statics.signup=async function(email,password,designation){
     const salt=await bcrypt.genSalt(10)
     const hash=await bcrypt.hash(password,salt)
     const data={
+        username: username,
         email:email,
         password:hash,
         designation:designation
