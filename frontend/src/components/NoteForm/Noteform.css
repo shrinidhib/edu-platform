@@ -1,7 +1,7 @@
 .note-form{
     width: 400px;
     background-color: #eecc8c;
-    padding: 30px;
+    padding: 2dvb;
     position: absolute;
     top: 12%;
     right: 0;
@@ -12,6 +12,7 @@
 .note-form >label{
     display: block;
     margin: 5px 0;
+    font-weight: 600;
 }
 
 .note-form >input{
@@ -30,6 +31,8 @@
     height: 300px;
     width: 100%;
     font-size: 0.8rem;
+    resize: none;
+    border-radius: 5px;
 }
 
 textarea{

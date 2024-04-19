@@ -13,9 +13,9 @@ const ForumDetails = ({forum})=>{
 
     return(
         <div className="forum-details">
-            <button className="displaybutton" onClick={handleForumClick}> <h4>{forum.title}</h4></button>
-            <p><strong>Description:</strong>{forum.description}</p>
-            <p><strong>Created by:</strong>{forum.createdBy}</p>
+            <h2 onClick={handleForumClick}>{forum.title}</h2>
+            <p><strong>Description: </strong>{forum.description}</p>
+            <p><strong>Created by: </strong>{forum.createdBy}</p>
             <p>{formatDistanceToNow(new Date(forum.createdAt), { addSuffix: true })}</p>
         </div>
     )

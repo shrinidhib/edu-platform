@@ -1,6 +1,6 @@
 .video{
     height: 600px;
-    width: 1000px;
+    width: 950px;
   }
   
 .video-view-page{
@@ -12,7 +12,9 @@ align-items: center;
 .createnote-btn{
 background-color: #eecc8c;
 margin-left: 20%;
-padding: 40px;
+padding: 20px;
 font-size: 1.2rem;
+border-radius: 10px;
+align-items: center;
 }
   

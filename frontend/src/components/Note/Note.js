@@ -53,8 +53,8 @@ const Note=({note})=>{
 
     return (
         <div className='note'>
-            <h1>{note.title}</h1>
-            <p>{note.content.slice(0,30)}...</p>
+            <h1 className='note-title'>{note.title}</h1>
+            <p>{note.content.slice(0,80)}...</p>
             <button className='read-btn' onClick={modalHandler}>Read More</button>
             <MdDelete onClick={deleteHandler} className='delete' size={25}/>
 

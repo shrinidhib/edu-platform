@@ -67,7 +67,7 @@ const DisplayScores = () => {
 
   return (
     <div className="display-scores-container">
-      <h2>Scores for User: {user.user.email}</h2>
+      <h2 className='score-title'>Scores for User: {user.user.email}</h2>
       <table className="scores-table">
         <thead>
           <tr>
