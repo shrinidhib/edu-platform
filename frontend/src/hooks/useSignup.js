@@ -15,7 +15,7 @@ export const useSignup=()=>{
             password:password,
             designation:designation
         }
-        const response=await fetch("https://edu-backend-mu.vercel.app/users/signup",{
+        const response=await fetch("http://localhost:4005/users/signup",{
             method:"POST",
             body:JSON.stringify(data),
             headers:{

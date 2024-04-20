@@ -9,7 +9,7 @@ const AllVid = () => {
     const {user}=useAuthContext()
     const handleSearch=async(e)=>{
         e.preventDefault()
-        const response= await fetch(`https://edu-backend-mu.vercel.app/videos/search/${title}`,{
+        const response= await fetch(`http://localhost:4005/videos/search/${title}`,{
             method: 'GET',
             headers:{
                 "Authorization":`Bearer ${user.token}`
@@ -23,7 +23,7 @@ const AllVid = () => {
     }
     useEffect(()=>{
         const getAllVids=async ()=>{
-            const response= await fetch('https://edu-backend-mu.vercel.app/videos/all',{
+            const response= await fetch('http://localhost:4005/videos/all',{
                 method: 'GET',
                 headers:{
                     "Authorization":`Bearer ${user.token}`

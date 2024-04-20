@@ -17,7 +17,7 @@ const Navbar = () => {
         <nav>
             <div className='contain'>
                 <Link to='/'>
-                    <h1>Logo</h1>
+                    <img src="../../../public/favicon.ico"></img>
                 </Link>
                 {user?<section>
                 <CgProfile size={25} onClick={()=>{setShowProfile(true)}}/>

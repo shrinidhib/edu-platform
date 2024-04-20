@@ -23,7 +23,7 @@ const MessageForm = ({ currentUser, currentID, onMessageSent }) => { // Added on
   
       const message = { content, createdBy: username, forumID };
   
-      const response = await fetch("https://edu-backend-mu.vercel.app/forums/messages", {
+      const response = await fetch("http://localhost:4005/forums/messages", {
         method: "POST",
         body: JSON.stringify(message),
         headers: {
@@ -47,7 +47,7 @@ const MessageForm = ({ currentUser, currentID, onMessageSent }) => { // Added on
     }, [content, currentUser, currentID, dispatch, token, onMessageSent]);
 
     useEffect(() => {
-        const socket = io('https://edu-backend-mu.vercel.app/');
+        const socket = io('http://localhost:4005/');
 
         socket.emit('message', 'Hello');
 

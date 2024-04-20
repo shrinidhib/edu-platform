@@ -11,7 +11,7 @@ export const UserDetails = () => {
     const fetchTests = async () => {
         try {
             // Fetch all tests
-            const testsResponse = await fetch("https://edu-backend-mu.vercel.app/test/",{
+            const testsResponse = await fetch("http://localhost:4005/test/",{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }
@@ -20,7 +20,7 @@ export const UserDetails = () => {
             setTests(testsJson);
 
             // Fetch scores for the user (with hardcoded user ID)
-            const scoresResponse = await fetch(`https://edu-backend-mu.vercel.app/score/${user.user._id}`,{
+            const scoresResponse = await fetch(`http://localhost:4005/score/${user.user._id}`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }
@@ -29,7 +29,7 @@ export const UserDetails = () => {
             setUserScores(scoresJson);
 
             // Fetch user details (with hardcoded user ID)
-            // const userResponse = await fetch("https://edu-backend-mu.vercel.app/user/getUser/661a9cbf15928d25c9c032e0");
+            // const userResponse = await fetch("http://localhost:4005/user/getUser/661a9cbf15928d25c9c032e0");
             // const userJSON = await userResponse.json();
             // setUserDetails(userJSON);
 

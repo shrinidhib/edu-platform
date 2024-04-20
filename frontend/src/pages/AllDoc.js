@@ -7,18 +7,18 @@ const AllDoc = () => {
   const [title,setTitle]=useState("")
   const handleSearch=async(e)=>{
       e.preventDefault()
-      const result = await axios.get(`https://edu-backend-mu.vercel.app/docs/search/${title}`);
+      const result = await axios.get(`http://localhost:4005/docs/search/${title}`);
       console.log(result.data.docs);
       setAllImage(result.data.docs);
       setTitle('')   
   }
   const getPdf = async () => {
-      const result = await axios.get("https://edu-backend-mu.vercel.app/docs/get-files");
+      const result = await axios.get("http://localhost:4005/docs/get-files");
       console.log(result.data.docs);
       setAllImage(result.data.docs);
   };
   const showPdf = (pdf) => {
-      window.open(`https://edu-backend-mu.vercel.app/files/${pdf}`, "_blank", "noreferrer");
+      window.open(`http://localhost:4005/files/${pdf}`, "_blank", "noreferrer");
       // setPdfFile(`http://localhost:5000/files/${pdf}`)
   };
   useEffect(() => {
