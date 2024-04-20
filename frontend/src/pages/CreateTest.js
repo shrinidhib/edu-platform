@@ -2,6 +2,7 @@ import React, { useState , useEffect} from "react";
 import { PreviewTest } from "./PreviewTest";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
+import './css/CreateTest.css'
 
 const CreateTest = () => {
   const [questions, setQuestions] = useState([]);
@@ -75,38 +76,39 @@ const CreateTest = () => {
   return (
     <div>
       {!showPreview && (
-      <form onSubmit={questionSubmitHandler} className="question-form">
-        <div className="title-container">
-          <input value={title} required onChange={(e)=>setTitle(e.target.value)} className="title-input" placeholder="Enter Title of Test"></input>
+      <form onSubmit={questionSubmitHandler} className="create-question-form">
+        <div className="create-title-container">
+          <label >Title of test : </label>
+          <input value={title} required onChange={(e)=>setTitle(e.target.value)} className="create-title-input" placeholder="Enter Title of Test"></input>
         </div>
-          <h2 className="question-header">Question {number}</h2>
+          <h2 className="create-question-header">Question {number}</h2>
 
-          <div className="question-section">
-              <label className="question-label">Question: </label>
-              <textarea required value={question} onChange={(e)=>setQuestion(e.target.value)}className='question' placeholder="Enter question..."></textarea>
+          <div className="create-question-section">
+              <label className="create-question-label">Question : </label>
+              <textarea required value={question} onChange={(e)=>setQuestion(e.target.value)}className='create-question' placeholder="Enter question..."></textarea>
           </div>
 
-          <div className="options-section">
-            <div className="option">
-              <p style={{color: "white"}}>A. </p>
-              <input required value={option1} onChange={(e)=>setOption1(e.target.value)} className='option-input' placeholder="Option 1..."></input>
+          <div className="create-options-section">
+            <div className="create-option">
+              <div className="create-option-label">A. </div>
+              <input required value={option1} onChange={(e)=>setOption1(e.target.value)} className='create-option-input' placeholder="Option 1..."></input>
             </div>
-            <div className="option">
-              <p style={{color: "white"}}>B. </p>
-              <input required value={option2} onChange={(e)=>setOption2(e.target.value)} className='option-input' placeholder="Option 2..."></input>
+            <div className="create-option">
+              <div >B. </div>
+              <input required value={option2} onChange={(e)=>setOption2(e.target.value)} className='create-option-input' placeholder="Option 2..."></input>
             </div>
-            <div className="option">
-              <p style={{color: "white"}}>C. </p>
-              <input required value={option3} onChange={(e)=>setOption3(e.target.value)} className='option-input' placeholder="Option 3..."></input>
+            <div className="create-option">
+              <div >C. </div>
+              <input required value={option3} onChange={(e)=>setOption3(e.target.value)} className='create-option-input' placeholder="Option 3..."></input>
             </div>
-            <div className="option">
-              <p style={{color: "white"}}>D. </p>
-              <input required value={option4} onChange={(e)=>setOption4(e.target.value)} className='option-input' placeholder="Option 4..."></input>
+            <div className="create-option">
+              <div >D. </div>
+              <input required value={option4} onChange={(e)=>setOption4(e.target.value)} className='create-option-input' placeholder="Option 4..."></input>
             </div>
           </div>
-          <div className="answer-section">
-            <h3 style={{color: "white"}}>Select Correct answer: </h3>
-            <select required className='answer-selector' value={answer} onChange={(e)=>setAnswer(e.target.value)}>
+          <div className="create-answer-section">
+            <label>Select Correct answer: </label>
+            <select required className='create-answer-selector' value={answer} onChange={(e)=>setAnswer(e.target.value)}>
               <option value="" disabled hidden>Select an option</option>
               <option value={option1}>{option1}</option>
               <option value={option2}>{option2}</option>
@@ -115,16 +117,16 @@ const CreateTest = () => {
 
             </select>
           </div>
-          <div className="button-section">
+          <div className="create-button-section">
             <button className='reset-button' onClick={reset}>Reset</button>
             
-            {number===10?<button type="submit">Set Question and Create Test</button>: <button type="submit">Set Question</button>}
+            {number===10?<button className="create-button" type="submit">Set Question and Create Test</button>: <button className="create-button" type="submit">Set Question</button>}
 
           </div>
 
       </form>
       )}
-      {showPreview && <PreviewTest t={test} closeHandler={()=>navigator('/tests')}/>}
+      {showPreview && <PreviewTest t={test} closeHandler={()=>navigator('/mytests')}/>}
     </div>
   )
 };

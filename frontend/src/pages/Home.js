@@ -29,7 +29,7 @@ const Home = () => {
             <Carousell/>
         </div>
         {recents.length!==0 && user.user.designation==="Student" && <div className='recent'>
-            <h3>Recents</h3>
+            <h3 className='section-head'>Recents</h3>
             <div className='recent-box'>
                 {recents.map((vid)=>{
                     return <Thumbnail key={vid.url} videoId={vid.videoId} title={vid.title}/>

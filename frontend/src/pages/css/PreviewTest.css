@@ -1,18 +1,21 @@
 .preview-container{
-    background-color: #ae445a;
+    background-color: var(--primary);
     padding: 20px;
-    border-radius: 15px;
     color: white;
     position: relative;
 }
 
 .title{
     text-align: center;
+    margin-bottom: 40px;
+    color: black;
 }
 
 .close-btn{
     position: absolute;
     top: 0;
     right: 0;
-    margin: 20px;
+    margin: 25px;
+    color: white;
+    background-color: var(--primary-dark);
 }

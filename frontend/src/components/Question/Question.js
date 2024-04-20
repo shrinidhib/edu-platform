@@ -58,22 +58,22 @@ const Question = ({q, index,testId}) => {
         {!showEdit && 
             <div>
                 <div className='preview-title'>
-                <h3>{index+1}. {question}</h3>
+                <label className='preview-label'>{index+1}. {question}</label>
                 <MdModeEditOutline onClick={()=>setShowEdit(true)}className='edit-icon' size={25} />
             </div>
             
             <div className='options-section'>
-                <div className='option preview-option'>
-                    <p>A. {options[0]}</p>
+                <div className={options[0]==q.answer?'option preview-option correct-ans':'option preview-option'}>
+                    <div>A. {options[0]}</div>
                 </div>
-                <div className='option preview-option'>
-                    <p>B. {options[1]}</p>
+                <div className={options[1]==q.answer?'option preview-option correct-ans':'option preview-option'}>
+                    <div>B. {options[1]}</div>
                 </div>
-                <div className='option preview-option'>
-                    <p>C. {options[2]}</p>
+                <div className={options[2]==q.answer?'option preview-option correct-ans':'option preview-option'}>
+                    <div>C. {options[2]}</div>
                 </div>
-                <div className='option preview-option'>
-                    <p>D. {options[3]}</p>
+                <div className={options[3]==q.answer?'option preview-option correct-ans':'option preview-option'}>
+                    <div>D. {options[3]}</div>
                 </div>
             </div>
             </div>
@@ -83,31 +83,31 @@ const Question = ({q, index,testId}) => {
             <div>
                  <form onSubmit={editHandler} className="question-form">
                     <div className="question-section">
-                        <label className="question-label">Question: </label>
+                        <div className="question-label">Question : </div>
                         <textarea required value={newquestion} onChange={(e)=>setNewQuestion(e.target.value)}className='question' placeholder="Enter question..."></textarea>
                     </div>
 
                     <div className="options-section">
                         <div className="option">
-                        <p style={{color: "white"}}>A. </p>
-                        <input required value={option1} onChange={(e)=>setOption1(e.target.value)} className='option-input' placeholder="Option 1..."></input>
+                        <div style={{color:"black"}}>A. </div>
+                        <input required value={option1} onChange={(e)=>setOption1(e.target.value)} className='preview-option-input' placeholder="Option 1..."></input>
                         </div>
                         <div className="option">
-                        <p style={{color: "white"}}>B. </p>
-                        <input required value={option2} onChange={(e)=>setOption2(e.target.value)} className='option-input' placeholder="Option 2..."></input>
+                        <div style={{color:"black"}}>B. </div>
+                        <input required value={option2} onChange={(e)=>setOption2(e.target.value)} className='preview-option-input' placeholder="Option 2..."></input>
                         </div>
                         <div className="option">
-                        <p style={{color: "white"}}>C. </p>
-                        <input required value={option3} onChange={(e)=>setOption3(e.target.value)} className='option-input' placeholder="Option 3..."></input>
+                        <div style={{color:"black"}}>C. </div>
+                        <input required value={option3} onChange={(e)=>setOption3(e.target.value)} className='preview-option-input' placeholder="Option 3..."></input>
                         </div>
                         <div className="option">
-                        <p style={{color: "white"}}>D. </p>
-                        <input required value={option4} onChange={(e)=>setOption4(e.target.value)} className='option-input' placeholder="Option 4..."></input>
+                        <div style={{color:"black"}}>D. </div>
+                        <input required value={option4} onChange={(e)=>setOption4(e.target.value)} className='preview-option-input' placeholder="Option 4..."></input>
                         </div>
                     </div>
-                    <div className="answer-section">
-                        <h3 style={{color: "white"}}>Select Correct answer: </h3>
-                        <select required className='answer-selector' value={newanswer} onChange={(e)=>setNewAnswer(e.target.value)}>
+                    <div className="edit-answer-section">
+                        <div style={{color: "black"}}>Select Correct answer: </div>
+                        <select required className='edit-answer-selector' value={newanswer} onChange={(e)=>setNewAnswer(e.target.value)}>
                         <option value="" disabled hidden>Select an option</option>
                         <option value={option1}>{option1}</option>
                         <option value={option2}>{option2}</option>
@@ -119,7 +119,7 @@ const Question = ({q, index,testId}) => {
                     <div className="button-section">
                         {/* <button className='reset-button' onClick={reset}>Reset</button> */}
                         
-                        <button type="submit">Save</button>
+                        <button className="edit-btn" type="submit">Save</button>
 
                     </div>
                 </form>

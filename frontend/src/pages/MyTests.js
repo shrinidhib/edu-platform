@@ -82,7 +82,7 @@ const Tests = () => {
                 </div>
                 <div className='delete-section'onClick={()=>{
                     deleteHandler(t._id)}}>
-                    <p>Delete</p>
+                    <div>Delete</div>
                     <MdDelete size={24} className='delete-test' />
                 </div>
                 </div>

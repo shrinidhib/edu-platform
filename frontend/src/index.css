@@ -9,14 +9,19 @@
   --success: #c2edce;
   --light-bg: #f6f6f2;
   --error: #e7195a;
+  --error-light: #d1646f;
 }
 
 body {
   background: #f1f1f1 !important;
   margin: 0;
   font-family: "Poppins" !important;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   text-decoration: none;
+}
+
+.section-head{
+  margin-left: 18px;
 }
 
 .layout{
@@ -322,4 +327,13 @@ input.error {
 }
 .btn-doc{
   border-radius: 5px;
+}
+
+.search{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.search input{
+  border-radius: 17px;
 }

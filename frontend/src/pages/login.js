@@ -12,7 +12,7 @@ const Login = () => {
     }
 
   return (
-    <div>
+    <div style={{width:"100vw", height: "80vh", alignContent:"center"}}>
         <form className='login' onSubmit={handleSubmit}>
             <label>Email</label>
             <input type="text" onChange={(e)=>{setEmail(e.target.value)}}/>

@@ -5,6 +5,7 @@ import Profile from '../Profile/Profile.js';
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 import { useLogout } from '../../hooks/useLogout.js';
 import './Navbar.css'
+import logo from './logo.png'
 const Navbar = () => {
     const [showProfile,setShowProfile]=useState(false)
     const {user}=useAuthContext()
@@ -17,7 +18,7 @@ const Navbar = () => {
         <nav>
             <div className='contain'>
                 <Link to='/'>
-                    <img src="../../../public/favicon.ico"></img>
+                    <img height={"70px"} src={logo}/>
                 </Link>
                 {user?<section>
                 <CgProfile size={25} onClick={()=>{setShowProfile(true)}}/>

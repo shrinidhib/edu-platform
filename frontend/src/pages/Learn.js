@@ -57,7 +57,7 @@ const Learn = () => {
     <div className='learn'> 
         <Link to='/alldocs'>
             <div className='recent'>
-                <h3>Docs</h3>
+                <h3 className='section-head'>Docs</h3>
                 <div className='recent-box'>
                 {allImage == null
                     ? ""
@@ -79,7 +79,7 @@ const Learn = () => {
         </Link>
         <Link to='/allvideos'>
             <div className='recent'>
-                <h3>Videos</h3>
+                <h3 className='section-head'>Videos</h3>
                 <div className='recent-box'>
                     {videos && videos.length!==0 && videos.map((vid)=>{
                         const videoId=fetchVideoId(vid)

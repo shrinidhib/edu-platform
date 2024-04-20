@@ -2,8 +2,9 @@ header {
     background: #fff;
   }
   header .contain {
-    max-width: 1400px;
-    margin: 0 auto;
+    /* max-width: 1400px; */
+    /* margin: 0 auto; */
+    margin: 0 10px;
     padding: 10px 20px;
     display: flex;
     align-items: center;
