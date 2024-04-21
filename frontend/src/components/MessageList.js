@@ -1,8 +1,11 @@
 import React, { useRef} from "react";
 import { useEffect } from "react";
+import { useAuthContext } from '../hooks/useAuthContext.js'
+
 
 function MessageList({ messages, currentUser }) {
   const messageListRef=useRef(null)
+  const {user}=useAuthContext()
   useEffect(() => {
     if (messageListRef.current) {
       messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
@@ -15,7 +18,7 @@ function MessageList({ messages, currentUser }) {
         <li
           key={message._id}
           className={`message-item ${
-            message.createdBy === currentUser.email ? "logged-in-message" : ""
+            message.createdBy === currentUser.user.username ? "logged-in-message" : ""
           }`}
         >
           <div className="message-header">

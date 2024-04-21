@@ -13,7 +13,8 @@ const MessageForm = ({ currentUser, currentID, onMessageSent }) => { // Added on
     const handleSubmit = useCallback(async (e) => {
       e.preventDefault();
   
-      const username = currentUser.email; // Use the email from currentUser prop
+      const username = currentUser.user.username;
+      console.log(currentUser) // Use the email from currentUser prop
       const forumID = currentID; // Use the forumID prop
   
       if (!username) {

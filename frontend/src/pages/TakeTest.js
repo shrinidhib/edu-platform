@@ -86,22 +86,23 @@ const TakeTest = () => {
         <div>
           <h1 className="test-title">{test.title}</h1>
           <div>
-            {test && test.questions.map(question => (
+            {test && test.questions.map((question, index) => (
               <div key={question._id} className="question-container">
+                <p className="question-number">Question {index + 1}:</p>
                 <p className="question-text">{question.question}</p>
                 <ul className="options-list">
-                  {question.options.map((option, index) => (
-                    <li key={index} className="option-item">
+                  {question.options.map((option, optionIndex) => (
+                    <li key={optionIndex} className={`option-item ${selectedAnswers[question._id] === option ? 'selected' : ''}`}>
                       <input
                         type="radio"
                         required
-                        id={`${question._id}-${index}`}
+                        id={`${question._id}-${optionIndex}`}
                         name={question._id}
                         value={option}
                         onChange={() => handleOptionSelect(question._id, option)}
                         className="option-input"
                       />
-                      <label htmlFor={`${question._id}-${index}`} className="option-label">{option}</label>
+                      <label htmlFor={`${question._id}-${optionIndex}`} className="option-label">{option}</label>
                     </li>
                   ))}
                 </ul>

@@ -91,6 +91,52 @@ body {
 
 /* forums */
 
+.forum-section{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.forum-header {
+  padding: 20px;
+  background-color: #388087;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 10px; /* Rounded corners */
+  height: 20%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+}
+
+.forum-messages{
+  
+  max-height: 80%;
+}
+
+.forum-header h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color:#fff;
+}
+
+.forum-header p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color:#fff;
+}
+
+
+
+.forum-button {
+  background-color: transparent;
+  border: none;
+  color: #388087; 
+  cursor: pointer;
+  font-size: 20px;
+  font-family: inherit;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+}
+
+
 
 .forum-details {
   background: #fff;
@@ -165,14 +211,19 @@ input.error {
   background-color:#fff;
  
 }
+
+
 /* Container for message list */
 .message-list {
-  margin-top: 90px;
-  margin-bottom:99px;
+  margin-top: 0px;
+  margin-bottom:79px;
+ 
   list-style-type: none;
+  overflow-y: scroll;
+  height: 60vh;
   padding: auto;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   flex-direction: column;
   /* overflow-x: hidden; */
   
@@ -191,21 +242,22 @@ input.error {
   justify-content: space-between;
   align-items: flex-start;
   border-radius: 10px; /* Rounded corners for a modern look */
-  background-color: #f9f9f9; /* Light gray background */
+  background-color: #f0f0f0; /* Light gray background */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 /* Message content */
 .message-content {
   margin-bottom: 0;
+  
   font-size: 16px;
   color: #333; /* Dark text color */
 }
 
 /* Message meta information */
 .message-meta {
-  font-size: 14px;
-  color: #801f1f; /* Lighter text color */
+  font-size: 12px;
+  color: #666; /* Lighter text color */
 }
 
 /* Styling for logged-in user's messages */
@@ -227,14 +279,14 @@ input.error {
 }
 
 .message-name{
-  color:#b7200f;
+  color:#2e1f59;
 }
 
 .create {
   position: fixed;
   bottom: 0;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 80%;
   margin: 0;
   padding: 20px;
   background-color: #f9f9f9; /* Light gray background */
@@ -242,6 +294,7 @@ input.error {
   display: flex;
   align-items: center;
   gap: 20px;
+  padding-right: 60px;
  
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
@@ -274,7 +327,7 @@ input.error {
 
 .create button {
   padding: 5px 10px;
-  background-color: #007bff; /* Blue button color */
+  background-color: #388087; /* Blue button color */
   color: #fff; /* White text color */
   font-size: 16px;
   border: none;
@@ -284,7 +337,8 @@ input.error {
 }
 
 .create button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #badfe7;
+  color:#388087;
 }
 
 .create .error {
@@ -292,6 +346,9 @@ input.error {
   color: #d9534f; /* Red text color for error message */
   font-size: 14px;
 }
+
+
+
 
 /* DOCSSS */
 
@@ -337,4 +394,34 @@ input.error {
 }
 .search input{
   border-radius: 17px;
+}
+
+.video-input-form{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.doc-input-form{
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.scroll-button {
+  position: fixed;
+  bottom: 20px;
+  right: 40px;
+  background-color: var(--primary-dark);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 999; /* Ensure the button is above other content */
+}
+
+.scroll-button:hover {
+  background-color: var(--primary-light);
+  color:var(--primary-dark)
 }

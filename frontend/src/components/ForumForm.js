@@ -83,7 +83,7 @@ const ForumForm = () => {
           className={emptyFields.includes('createdBy') ? 'error' : ''}
         />
 
-        <button>Add Forum</button>
+        <button style={{marginTop: "30px"}}>Add Forum</button>
         {error && <div className="error">{error}</div>}
       </form>
     

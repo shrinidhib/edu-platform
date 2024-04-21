@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom"
 
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
@@ -13,7 +12,7 @@ const ForumDetails = ({forum})=>{
 
     return(
         <div className="forum-details">
-            <h2 onClick={handleForumClick}>{forum.title}</h2>
+            <button className="forum-button" onClick={handleForumClick}>{forum.title}</button>
             <p><strong>Description: </strong>{forum.description}</p>
             <p><strong>Created by: </strong>{forum.createdBy}</p>
             <p>{formatDistanceToNow(new Date(forum.createdAt), { addSuffix: true })}</p>
