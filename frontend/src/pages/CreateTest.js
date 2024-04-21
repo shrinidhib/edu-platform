@@ -75,7 +75,7 @@ const CreateTest = () => {
 
   return (
     <div>
-      {!showPreview && (
+      {!showPreview && number!==11 &&(
       <form onSubmit={questionSubmitHandler} className="create-question-form">
         <div className="create-title-container">
           <label >Title of test : </label>

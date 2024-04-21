@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Question.css'
 import { MdModeEditOutline } from "react-icons/md";
 import { useAuthContext } from '../../hooks/useAuthContext';
+import './Question.css'
 
 
 
@@ -59,8 +60,8 @@ const Question = ({q, index,testId}) => {
             <div>
                 <div className='preview-title'>
                 <label className='preview-label'>{index+1}. {question}</label>
-                <MdModeEditOutline onClick={()=>setShowEdit(true)}className='edit-icon' size={25} />
-            </div>
+                <MdModeEditOutline onClick={()=>setShowEdit(true)} className='edit-icon' size={25} />
+                </div>
             
             <div className='options-section'>
                 <div className={options[0]==q.answer?'option preview-option correct-ans':'option preview-option'}>

@@ -7,16 +7,23 @@
     padding-left: 18px !important;
 }
 
+.preview-option{
+  background-color: var(--wrong-ans);
+}
+
 .preview-title{
-    display: flex;
+    display: grid;
+    grid-template-columns: 19fr 1fr;
     justify-content: space-between;
     align-items: center;
     padding: 0px 20px;
     color: black;
+    gap: 20px;
 }
 
 .edit-icon{
     cursor: pointer;
+    size: 25px !important;
 }
 
 .option-input{
@@ -28,7 +35,7 @@
   color: black;
 }
 .question-form{
-    background-color: var(--primary);
+    background-color: var(--primary-light);
     padding: 20px;
     width: 100%;
     margin: 10px auto;
@@ -138,6 +145,6 @@
 }
   
 .correct-ans{
-  background-color: var(--success);
+  background-color: var(--light-bg);
 }
   
