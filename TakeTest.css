@@ -1,0 +1,79 @@
+.take-test-container {
+  padding: 20px;
+}
+
+.test-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.question-container {
+  margin-bottom: 30px;
+}
+
+.question-number {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.question-text {
+  margin-bottom: 10px;
+}
+
+.options-list {
+  list-style: none;
+  padding: 0;
+}
+
+.option-item {
+  margin-bottom: 10px;
+}
+
+.option-item.selected {
+  background-color: #f0f0f0;
+}
+
+.option-input {
+  margin-right: 10px;
+  visibility: hidden;
+}
+
+.option-label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.option-label:hover {
+  background-color: #f0f0f0;
+}
+
+.option-input:checked + .option-label {
+  background-color: #388087;
+  color: #fff;
+  border-color: #388087;
+}
+
+.submit-button {
+  background-color: #6fb3b8;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #388087;
+}
+
+.score-text {
+  font-weight: bold;
+  margin-top: 20px;
+}
