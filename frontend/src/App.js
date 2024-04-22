@@ -22,6 +22,7 @@ import AllDoc from './pages/AllDoc.js'
 
 import { UserDetails } from './pages/UserDetails.js'
 import SideBar from './components/SideBar.js'
+import TeacherStats from './pages/TeacherStats.js'
 
 const App = () => {
   const {user}=useAuthContext()
@@ -46,20 +47,21 @@ const App = () => {
               <Route path="/login" element={!user?<Login/>:<Navigate to='/'/>}/>
               <Route path="/signup" element={!user?<Signup/>:<Navigate to='/'/>}/>
               <Route path='/learn' element={check?<Navigate to='/addvideos'/>:<Learn/>}/>
-              <Route path='/allvideos' element={<AllVid/>}/>
-              <Route path='/alldocs' element={<AllDoc/>}/>
+              <Route path='/allvideos' element={user? <AllVid/>:<Navigate to="/login"/>}/>
+              <Route path='/alldocs' element={user? <AllDoc/>:<Navigate to="/login"/>}/>
               <Route path='/mynotes' element={!check?<MyNotes/>:null}/>
-              <Route path='/watch/:videoId' element={user?<VideoView/>:null}/>
+              <Route path='/watch/:videoId' element={user?<VideoView/>:<Navigate to="/login"/>}/>
               <Route path='/createtest' element={check?<CreateTest/>: null}/>
               <Route path='/mytests' element={check?<MyTests/>:null}/>
-              <Route path='/userdetails' element={<UserDetails/>}/>
-              <Route path='/displayscores' element={<DisplayScores/>}/>
+              <Route path='/userdetails' element={!check?<UserDetails/>:null}/>
+              <Route path='/displayscores' element={!check? <DisplayScores/>:null}/>
               <Route path='/tests' element={!check?<Tests/>:null}/>
               <Route path='/taketest/:testID' element={!check?<TakeTest/>:null}/>
               <Route path='/addvideos' element={check?<Videos/>:<Navigate to='/learn'/>}/>
-              <Route path="/forums" element={<AllForums/>} />
-              <Route path="/createforum" element={<CreateForum/>}/>
-              <Route path="/forums/:forumID" element={<DisplayForum/>}/>
+              <Route path="/forums" element={user? <AllForums/>: <Navigate to="/login"/>} />
+              <Route path="/createforum" element={user?<CreateForum/>: <Navigate to="/login"/>}/>
+              <Route path="/forums/:forumID" element={user? <DisplayForum/>: <Navigate to="/login"/>}/>
+              <Route path="/teacherstats" element={check? <TeacherStats/>: <Navigate to="/login"/>}/>
             </Routes>
           </div>
         </div>

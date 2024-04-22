@@ -8,7 +8,11 @@ const ThumbnailTeacher = ({videoId,title,id}) => {
     const {dispatch}=useVideoContext()
     const {user}=useAuthContext()
     const handleDelete=async()=>{
-        const response=await fetch(`http://localhost:4005/videos/removevideo/${id}`,{
+        const isConfirmed = window.confirm("Are you sure you want to delete this Video?")
+        if (isConfirmed){
+
+        
+        const response=await fetch(`https://edu-backend-mu.vercel.app/videos/removevideo/${id}`,{
             method:"DELETE",
             headers:{
                 "Authorization":`Bearer ${user.token}`
@@ -22,6 +26,7 @@ const ThumbnailTeacher = ({videoId,title,id}) => {
         else{
             console.log("error")
         }
+    }
     }
   return (
     <div className='thumbnail-container'>

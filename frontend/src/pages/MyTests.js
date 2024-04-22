@@ -10,7 +10,7 @@ const Tests = () => {
     const [currentTest, setCurrentTest]=useState(null)
     const {user}=useAuthContext()
     const fetchTests=async()=>{
-        const response=await fetch(`http://localhost:4005/test/mytests/${user.user._id}`,{
+        const response=await fetch(`https://edu-backend-mu.vercel.app/test/mytests/${user.user._id}`,{
             method: 'GET',
             headers:{
                 'content-type':'application/json',
@@ -35,7 +35,7 @@ const Tests = () => {
         const isConfirmed = window.confirm("Are you sure you want to delete this test?")
 
         if (isConfirmed){
-            const response=await fetch(`http://localhost:4005/test/${id}`,{
+            const response=await fetch(`https://edu-backend-mu.vercel.app/test/${id}`,{
             method: 'DELETE',
             headers:{
                 'content-type':'application/json',
@@ -68,7 +68,7 @@ const Tests = () => {
             {tests.length!==0 && tests.map((t, i)=>(
                 <div key={t._id}>
                 <div onClick={()=>handleClick(t)} className='test'>
-                        <p className='test-title'>Title: {t.title}</p>
+                    <p className='mytest-title'>Title: {t.title}</p>
                     <div className='lines'>
                         <div className='line'></div>
                         <div className='line'></div>

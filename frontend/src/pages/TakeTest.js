@@ -15,7 +15,7 @@ const TakeTest = () => {
   useEffect(() => {
     const fetchTest = async () => {
       try {
-        const response = await fetch(`http://localhost:4005/test/${testID}`,{
+        const response = await fetch(`https://edu-backend-mu.vercel.app/test/${testID}`,{
           method: 'GET',
           headers:{
             "Authorization":`Bearer ${user.token}`
@@ -63,7 +63,7 @@ const TakeTest = () => {
           userID: user.user._id 
       }
       console.log(scoreData)
-      const response = await fetch('http://localhost:4005/score', {
+      const response = await fetch('https://edu-backend-mu.vercel.app/score', {
         method: 'POST',
         body:JSON.stringify(scoreData),
         headers:{
@@ -84,7 +84,7 @@ const TakeTest = () => {
     <div className="take-test-container">
       {test && (
         <div>
-          <h1 className="test-title">{test.title}</h1>
+          <h1 className="take-test-title">{test.title}</h1>
           <div>
             {test && test.questions.map((question, index) => (
               <div key={question._id} className="question-container">

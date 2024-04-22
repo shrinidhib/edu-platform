@@ -9,7 +9,7 @@ const AllVid = () => {
     const {user}=useAuthContext()
     const handleSearch=async(e)=>{
         e.preventDefault()
-        const response= await fetch(`http://localhost:4005/videos/search/${title}`,{
+        const response= await fetch(`https://edu-backend-mu.vercel.app/videos/search/${title}`,{
             method: 'GET',
             headers:{
                 "Authorization":`Bearer ${user.token}`
@@ -18,12 +18,12 @@ const AllVid = () => {
         const result=await response.json()
         if(response.ok){
             setAllVideos(result)
-            setTitle('')
+            // setTitle('')
         }     
     }
     useEffect(()=>{
         const getAllVids=async ()=>{
-            const response= await fetch('http://localhost:4005/videos/all',{
+            const response= await fetch('https://edu-backend-mu.vercel.app/videos/all',{
                 method: 'GET',
                 headers:{
                     "Authorization":`Bearer ${user.token}`
@@ -50,9 +50,9 @@ const AllVid = () => {
   return (
     <div>
         <form className='search' onSubmit={handleSearch}>
-            <button type='submit'>
+            <label type='submit'>
                 <CiSearch size={20}/>
-            </button>
+            </label>
             <input type='text' placeholder='Search' onChange={(e)=>setTitle(e.target.value)} value={title}/>
         </form>
         <div className='allvids'>

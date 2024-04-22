@@ -1,13 +1,15 @@
 .thumbnail-container{
     padding: 10px;
-    width: 400px;
+    width: 350px;
   }
   
   .thumbnail{
     height: 200px;
+    width: 350px;
     
   }
   .teacher-control{
+    
     margin-top: 10px;
     display: flex;
     justify-content: space-between;

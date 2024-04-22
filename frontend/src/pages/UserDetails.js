@@ -12,7 +12,7 @@ export const UserDetails = () => {
     const fetchTests = async () => {
         try {
             // Fetch all tests
-            const testsResponse = await fetch("http://localhost:4005/test/",{
+            const testsResponse = await fetch("https://edu-backend-mu.vercel.app/test/",{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }
@@ -21,7 +21,7 @@ export const UserDetails = () => {
             setTests(testsJson);
 
             // Fetch scores for the user (with hardcoded user ID)
-            const scoresResponse = await fetch(`http://localhost:4005/score/${user.user._id}`,{
+            const scoresResponse = await fetch(`https://edu-backend-mu.vercel.app/score/${user.user._id}`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }
@@ -30,7 +30,7 @@ export const UserDetails = () => {
             setUserScores(scoresJson);
 
             // Fetch user details (with hardcoded user ID)
-            // const userResponse = await fetch("http://localhost:4005/user/getUser/661a9cbf15928d25c9c032e0");
+            // const userResponse = await fetch("https://edu-backend-mu.vercel.app/user/getUser/661a9cbf15928d25c9c032e0");
             // const userJSON = await userResponse.json();
             // setUserDetails(userJSON);
 
@@ -73,9 +73,10 @@ export const UserDetails = () => {
                             {/* Add more user details here */}
                         </div>
                     )}
-                    <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
+                    <div >
                         {/* Display the least scoring tests below the user details */}
-                        <h2>Least Scoring Tests</h2>
+                        <h2 style={{display:'block'}}>Least Scoring Tests</h2>
+                        <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'flex-start' }}>
                         {lowestScores.map(score => (
                             <div key={score._id} style={{ backgroundColor: '#388087', color: 'white', padding: '10px', margin: '10px', borderRadius: '5px', minWidth: '150px', textAlign: 'center' }}>
                                 <p>Test Name: {tests.find(test => test._id === score.testID)?.title}</p>
@@ -83,6 +84,7 @@ export const UserDetails = () => {
                                 {/* Add more test details here */}
                             </div>
                         ))}
+                        </div>
                     </div>
                     {/* Display the progress bar representing the percentage of scores */}
                     <div style={{ marginTop: '20px' }}>

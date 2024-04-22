@@ -6,7 +6,7 @@ import  './css/LoginSignup.css'
 const Signup = () => {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
-    const [designation,setDesignation]=useState("")
+    const [designation,setDesignation]=useState("Teacher")
     const [username, setUsername]=useState("")
     const {error,loading,signup}=useSignup()//destructure
     const handleSubmit=async(e)=>{
@@ -15,7 +15,7 @@ const Signup = () => {
     }
 
   return (
-    <div>
+    <div style={{width:"100vw", height: "80vh", alignContent:"center"}}>
         <form className='signup' onSubmit={handleSubmit}>
             <label>Username</label>
             <input type="text" onChange={(e)=>{setUsername(e.target.value)}}/>

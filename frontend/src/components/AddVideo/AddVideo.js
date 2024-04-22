@@ -18,20 +18,24 @@ const AddVideo = () => {
     
 
     const deleteDoc=async(id)=>{
+      const isConfirmed = window.confirm("Are you sure you want to delete this Doc?")
+        if (isConfirmed){
+
+
         const response = await axios.delete(
-            `http://localhost:4005/docs/deletedoc/${id}`
+            `https://edu-backend-mu.vercel.app/docs/deletedoc/${id}`
         );
         if(response.data.status==='ok'){
             getPdf()
-        }
+        }}
     }
     const getPdf = async () => {
-        const result = await axios.get(`http://localhost:4005/docs/filter/${user.user._id}`);
+        const result = await axios.get(`https://edu-backend-mu.vercel.app/docs/filter/${user.user._id}`);
         console.log(result.data.docs);
         setAllImage(result.data.docs);
     };
     const showPdf = (pdf) => {
-        window.open(`http://localhost:4005/files/${pdf}`, "_blank", "noreferrer");
+        window.open(`https://edu-backend-mu.vercel.app/files/${pdf}`, "_blank", "noreferrer");
         // setPdfFile(`http://localhost:5000/files/${pdf}`)
     };
     useEffect(() => {
@@ -48,7 +52,7 @@ const AddVideo = () => {
         console.log(formdata)
 
         const response = await axios.post(
-            "http://localhost:4005/docs/upload-files",
+            "https://edu-backend-mu.vercel.app/docs/upload-files",
             formdata,
             {
               headers: { "Content-Type": "multipart/form-data" },
@@ -77,7 +81,7 @@ const AddVideo = () => {
             setError(null)
             const url=inputUrl
             const video={url,title,teacher_id:user.user._id}
-            const response= await fetch('http://localhost:4005/videos/addvideos',{
+            const response= await fetch('https://edu-backend-mu.vercel.app/videos/addvideos',{
                 method: 'POST',
                 body: JSON.stringify(video),
                 headers:{
@@ -100,7 +104,7 @@ const AddVideo = () => {
     }
   return (
     <>
-    <form onSubmit={addVideoHandler}>
+    <form onSubmit={addVideoHandler} className='video-input-form'>
         <input 
         type='text' 
         placeholder='Add video url' 
@@ -121,9 +125,18 @@ const AddVideo = () => {
                 return (
                   <div className="doc-cont">
                     <h6>Title: {data.title}</h6>
+                    <div className='lines'>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                    </div>
                     <div className='doc-btn-cont'>
                     <button
-                      className="doc-btn"
+                      className="btn-doc"
                       onClick={() => showPdf(data.file)}
                     >
                       View Pdf
@@ -135,7 +148,7 @@ const AddVideo = () => {
               })}
             </div>
         </div>}
-    <form onSubmit={addDocHandler} encType='multipart/form-data'>
+    <form className="doc-input-form" onSubmit={addDocHandler} encType='multipart/form-data'>
         <input type="file" filename="file" accept='application/pdf' onChange={(e)=>{setFile(e.target.files[0])}} required/>
         <input type='text' placeholder='Add Title' value={title2} onChange={(e)=>{setTitle2(e.target.value)}} required/>
         <button >Submit</button>

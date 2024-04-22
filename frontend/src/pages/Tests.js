@@ -13,7 +13,7 @@ const Tests = () => {
     const fetchTests = async () => {
         try {
             // Fetch all tests
-            const testsResponse = await fetch(`http://localhost:4005/test/`,{
+            const testsResponse = await fetch(`https://edu-backend-mu.vercel.app/test/`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }
@@ -22,7 +22,7 @@ const Tests = () => {
             setTests(testsJson)
 
             // Fetch scores for the user
-            const scoresResponse = await fetch(`http://localhost:4005/score/${user.user._id}`,{
+            const scoresResponse = await fetch(`https://edu-backend-mu.vercel.app/score/${user.user._id}`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }
@@ -57,7 +57,7 @@ const Tests = () => {
                 if (!testScore) {
                     return (
                         <div key={index} onClick={() => handleClick(test)} className='test'>
-                            <p className='test-title'>Title: {test.title}</p>
+                            <p className='mytest-title'>Title: {test.title}</p>
                             <div className='lines'>
                                 <div className='line'></div>
                                 <div className='line'></div>

@@ -7,18 +7,18 @@ const AllDoc = () => {
   const [title,setTitle]=useState("")
   const handleSearch=async(e)=>{
       e.preventDefault()
-      const result = await axios.get(`http://localhost:4005/docs/search/${title}`);
+      const result = await axios.get(`https://edu-backend-mu.vercel.app/docs/search/${title}`);
       console.log(result.data.docs);
       setAllImage(result.data.docs);
       setTitle('')   
   }
   const getPdf = async () => {
-      const result = await axios.get("http://localhost:4005/docs/get-files");
+      const result = await axios.get("https://edu-backend-mu.vercel.app/docs/get-files");
       console.log(result.data.docs);
       setAllImage(result.data.docs);
   };
   const showPdf = (pdf) => {
-      window.open(`http://localhost:4005/files/${pdf}`, "_blank", "noreferrer");
+      window.open(`https://edu-backend-mu.vercel.app/files/${pdf}`, "_blank", "noreferrer");
       // setPdfFile(`http://localhost:5000/files/${pdf}`)
   };
   useEffect(() => {
@@ -27,9 +27,9 @@ const AllDoc = () => {
   return (
     <div>
         <form className='search' onSubmit={handleSearch}>
-            <button type='submit'>
+            <label type='submit'>
                 <CiSearch size={20}/>
-            </button>
+            </label>
             <input type='text' placeholder='Search' onChange={(e)=>setTitle(e.target.value)} value={title}/>
         </form>
       <div className='doc-div'>
@@ -39,6 +39,15 @@ const AllDoc = () => {
             return (
               <div className="doc-cont">
                 <h6>Title: {data.title}</h6>
+                <div className='lines'>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                        <div className='line'></div>
+                    </div>
                 <button
                   className="btn-doc"
                   onClick={() => showPdf(data.file)}

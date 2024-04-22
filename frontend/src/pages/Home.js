@@ -10,7 +10,7 @@ const Home = () => {
     useEffect(()=>{
         const getRec=async ()=>{
             const id=user.user._id
-            const response=await fetch(`http://localhost:4005/users/recents/${id}`,{
+            const response=await fetch(`https://edu-backend-mu.vercel.app/users/recents/${id}`,{
                 headers:{
                     "Authorization":`Bearer ${user.token}`
                 }

@@ -6,7 +6,7 @@ const Thumbnail = ({videoId,title}) => {
   const {user}=useAuthContext()
   const addItem=async(data)=>{
     const id=user.user._id
-    const response=await fetch(`http://localhost:4005/users/update/${id}`,{
+    const response=await fetch(`https://edu-backend-mu.vercel.app/users/update/${id}`,{
         method:"PUT",
         body: JSON.stringify({newItem:data}),
         headers:{
@@ -18,7 +18,7 @@ const Thumbnail = ({videoId,title}) => {
     const result=await response.json()
     console.log(result)}
   return (
-    <div className='thumbnail-container'>
+    <div style={{cursor:'pointer'}}className='thumbnail-container'>
         <Link to={`/watch/${videoId}`}>
         <img alt='thumbnail' className='thumbnail' src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} onClick={()=>{addItem({videoId,title})}}/>
         </Link>

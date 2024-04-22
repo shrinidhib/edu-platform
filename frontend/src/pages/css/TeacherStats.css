@@ -1,0 +1,42 @@
+:root {
+    --primary: #6fb3b8;
+    --primary-light: #badfe7;
+    --primary-dark: #388087;
+}
+
+.teacher-stats-container {
+    padding: 20px;
+}
+
+.page-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+     ; /* Set text color to primary dark */
+    text-transform: uppercase; /* Convert text to uppercase */
+    font-weight: bold; /* Apply bold font weight */
+}
+
+
+.test-stats {
+    background-color: #badfe7;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease; /* Add transition for smoother hover effect */
+}
+
+.test-stats:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add subtle shadow on hover */
+}
+
+.test-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color:#388087;
+    margin-left: 5px  !important;
+}
+
+.stat {
+    margin-bottom: 5px;
+    margin-left: 5px !important;
+}

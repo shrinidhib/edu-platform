@@ -1,79 +1,75 @@
+
+
+
 .take-test-container {
+  /* max-width: 800px; */
+  margin: 0 auto;
   padding: 20px;
 }
 
-.test-title {
+.take-test-title {
   font-size: 24px;
-  font-weight: bold;
   margin-bottom: 20px;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .question-container {
   margin-bottom: 30px;
 }
 
-.question-number {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
 .question-text {
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
 .options-list {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
 }
 
 .option-item {
+  display: flex;
+  align-items: center;
   margin-bottom: 10px;
-}
-
-.option-item.selected {
-  background-color: #f0f0f0;
 }
 
 .option-input {
   margin-right: 10px;
-  visibility: hidden;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary-dark);
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.option-input:checked::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-dark);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .option-label {
-  display: inline-block;
-  cursor: pointer;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.option-label:hover {
-  background-color: #f0f0f0;
-}
-
-.option-input:checked + .option-label {
-  background-color: #388087;
-  color: #fff;
-  border-color: #388087;
+  font-size: 16px;
 }
 
 .submit-button {
-  background-color: #6fb3b8;
   color: #fff;
-  border: none;
   padding: 10px 20px;
-  border-radius: 4px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  margin-top: 20px;
-}
-
-.submit-button:hover {
-  background-color: #388087;
 }
 
 .score-text {
-  font-weight: bold;
+  font-size: 18px;
   margin-top: 20px;
 }

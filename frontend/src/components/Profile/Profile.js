@@ -10,8 +10,9 @@ const Profile = ({remove}) => {
       <div className='details' onClick={(e)=>{e.stopPropagation()}}>
         <span><IoCloseSharp size={25} onClick={()=>{remove()}}/></span>
         <div>
-            <h3>{user.email}</h3>
-            <h3>{user.user.designation}</h3>
+            <h4>Username: {user.user.username}</h4>
+            <h4>Email: {user.email}</h4>
+            <h4>Designation: {user.user.designation}</h4>
         </div>
       </div>
     </div>

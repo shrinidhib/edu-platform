@@ -30,7 +30,7 @@ const SideBar = () => {
     <div className='sidebar'>
     <div className='links'>
       <ul>
-      <li onClick={()=>{handleClick("Stats")}}>{<LinkElement active={activeLink} text="Stats" icon={<IoStatsChartOutline/>} path="/userdetails"/>}</li>
+      <li onClick={()=>{handleClick("Stats")}}>{!check? <LinkElement active={activeLink} text="Stats" icon={<IoStatsChartOutline/>} path="/userdetails"/>: <LinkElement active={activeLink} text={"Teacher Stats"} icon={<GrTest />} path="/teacherstats"/>}</li>
       <li onClick={()=>{handleClick("Home")}}><LinkElement active={activeLink} text="Home" icon={<RiHome2Line/>} path="/"/></li>
       <li onClick={()=>{if (check){
         handleClick("Teach")}
@@ -53,4 +53,3 @@ const SideBar = () => {
 }
 
 export default SideBar
-

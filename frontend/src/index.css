@@ -31,7 +31,7 @@ body {
 
 
 .sidebar{
-  background-color: #1aac83;
+  background-color: var(--primary);
   height:auto;
   min-height: 100vh;
 
@@ -209,6 +209,8 @@ input.error {
 .displayforum{
   align-items: center;
   background-color:#fff;
+  overflow-y: hidden;
+  height: 90vh;
  
 }
 
@@ -220,8 +222,7 @@ input.error {
  
   list-style-type: none;
   overflow-y: scroll;
-  height: 60vh;
-  padding: auto;
+  height: 70vh;
   display: flex;
   /* flex-wrap: wrap; */
   flex-direction: column;
@@ -235,7 +236,7 @@ input.error {
 .message-item {
   margin-bottom: 20px;
   border: 1px solid #ccc;
-  padding: 0;
+  padding: 10px;
   width: 58%;
   display: flex;
   flex-direction: column;
@@ -292,7 +293,8 @@ input.error {
   background-color: #f9f9f9; /* Light gray background */
   border-radius: 10px;
   display: flex;
-  align-items: center;
+  align-items: baseline;
+  justify-content: space-between;
   gap: 20px;
   padding-right: 60px;
  
@@ -355,17 +357,9 @@ input.error {
 
 .doc-div{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-}
-.doc-cont{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  height: 120px;
-  background-color:grey;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+  margin-left: 10px;
 }
 .doc-btn-cont{
   display: flex;
@@ -379,18 +373,36 @@ input.error {
 }
 .doc-list-outer{
   background: #fff;
-  height: 150px;
+  height: 275px;
   width: 90vw;
   padding: 10px;
 }
 .btn-doc{
   border-radius: 5px;
+  margin-top: 10px;
+}
+.doc-cont{
+  padding: 20px;
+  background-color:grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  cursor: pointer;
+  height: 250px;
+  width: 250px;
+}
+.line{
+  width: 80%;
+  height: 2px;
+  background-color: black;
+  margin: 10px auto;
 }
 
 .search{
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-bottom: 20px;
 }
 .search input{
   border-radius: 17px;
@@ -424,4 +436,9 @@ input.error {
 .scroll-button:hover {
   background-color: var(--primary-light);
   color:var(--primary-dark)
+}
+
+.mytest-title{
+  color: black;
+  margin-left: 20px  !important;
 }
