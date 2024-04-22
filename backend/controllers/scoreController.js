@@ -11,6 +11,17 @@ const createScore = async (req, res) => {
     }
 };
 
+const getAllScores = async (req, res) => {
+    try {
+        const scores = await Score.find(); // Populate the testID field if necessary
+        res.status(200).json(scores);
+    } catch (error) {
+        console.error('Error fetching scores:', error);
+        res.status(500).json({ error: 'Error fetching scores' });
+    }
+};
+
+
 const getScoresForUser = async (req, res) => {
     const userId = req.params.id; // Assuming userId is passed as a route parameter
   
@@ -40,5 +51,6 @@ const getScoresForUser = async (req, res) => {
 module.exports = {
     createScore,
     getScoresForUser,
-    getScoresForTest
+    getScoresForTest,
+    getAllScores
 };
